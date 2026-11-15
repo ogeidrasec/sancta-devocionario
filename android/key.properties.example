@@ -1,0 +1,5 @@
+# Copie para android/key.properties (NUNCA envie ao Git) e preencha.
+storePassword=SUA_SENHA_DO_KEYSTORE
+keyPassword=SUA_SENHA_DA_CHAVE
+keyAlias=upload
+storeFile=C:/Users/SEU_USUARIO/chaves/sancta-upload.jks
