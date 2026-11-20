@@ -36,8 +36,10 @@ class MassGuidePage extends StatelessWidget {
         : [
             (l10n.massGuidePart1Title, l10n.massGuidePart1Body, Icons.login),
             (l10n.massGuidePart2Title, l10n.massGuidePart2Body, Icons.menu_book),
-            (l10n.massGuidePart3Title, l10n.massGuidePart3Body, Icons.church),
-            (l10n.massGuidePart4Title, l10n.massGuidePart4Body, Icons.wb_sunny_outlined),
+            (l10n.massGuidePart3Title, l10n.massGuidePart3Body, Icons.volunteer_activism),
+            (l10n.massGuidePart4Title, l10n.massGuidePart4Body, Icons.church),
+            (l10n.massGuidePart5Title, l10n.massGuidePart5Body, Icons.brightness_7),
+            (l10n.massGuidePart6Title, l10n.massGuidePart6Body, Icons.wb_sunny_outlined),
           ];
 
     return InnerPageScaffold(
