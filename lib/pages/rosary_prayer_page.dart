@@ -51,6 +51,7 @@ class _RosaryPrayerPageState extends State<RosaryPrayerPage> {
   void _goNext() {
     final phaseBefore = _phase;
     final decadeBefore = _currentDecade;
+    final beadBefore = _currentBead;
     var finished = false;
     setState(() {
       if (_phase == RosaryPhase.opening) {
@@ -83,9 +84,8 @@ class _RosaryPrayerPageState extends State<RosaryPrayerPage> {
 
     if (finished) {
       _haptic(HapticKind.finale); // terço concluído: três vibrações curtas
-    } else if (phaseBefore == RosaryPhase.decade &&
-        (_currentDecade != decadeBefore || _phase == RosaryPhase.closing)) {
-      _haptic(HapticKind.decade); // fim de um mistério: vibração longa
+    } else if (phaseBefore == RosaryPhase.decade && beadBefore == 11) {
+      _haptic(HapticKind.decade); // terminou a 10ª Ave-Maria: vibração longa
     } else if (_phase != phaseBefore || _currentDecade != decadeBefore) {
       _haptic(HapticKind.medium); // novo mistério ou nova fase
     } else {

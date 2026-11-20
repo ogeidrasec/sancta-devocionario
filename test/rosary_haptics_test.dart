@@ -174,20 +174,28 @@ void main() {
         await next();
       }
       backend.calls.clear();
-      for (var i = 0; i < 13; i++) {
+      // anúncio -> Pai-Nosso -> 1ª ... 10ª Ave-Maria: tudo leve
+      for (var i = 0; i < 11; i++) {
         await next();
       }
-      expect(backend.calls.where((c) => c == 'vibrate:25:110').length, 13);
+      expect(backend.calls.where((c) => c == 'vibrate:25:110').length, 11);
       backend.calls.clear();
-      await next(); // sai do 1º mistério
+      await next(); // terminou a 10ª Ave-Maria
       expect(backend.calls, ['vibrate:400:255']);
+      backend.calls.clear();
+      await next(); // Glória -> Ó meu Jesus: leve
+      await next(); // entra no 2º mistério: médio, não longo
+      expect(backend.calls, ['vibrate:25:110', 'vibrate:45:170']);
 
-      for (var i = 0; i < 14 * 3 + 13; i++) {
+      for (var i = 0; i < 14 * 3 + 11; i++) {
         await next();
       }
       backend.calls.clear();
-      await next(); // fecha o 5º mistério
+      await next(); // 10ª Ave-Maria do 5º mistério
       expect(backend.calls, ['vibrate:400:255']);
+      await next();
+      await next(); // fecha o 5º mistério (vai para a Salve-Rainha)
+      expect(backend.calls.last, 'vibrate:45:170');
       await tester.runAsync(() async {
         await tester.tap(find.text('Finalizar'));
         await Future.delayed(const Duration(milliseconds: 800));

@@ -10937,7 +10937,7 @@ abstract class AppLocalizations {
   /// No description provided for @tourRosaryTodayBody.
   ///
   /// In pt, this message translates to:
-  /// **'O app já escolhe os mistérios do dia da semana. Toque no cartão para rezar: as orações vão passando conta por conta, com Próxima e Anterior. A tela fica acesa, o celular vibra a cada Ave-Maria, mais longo ao fim de cada mistério, e ao terminar uma chuva de pétalas e uma rosa no Jardim.'**
+  /// **'O app já escolhe os mistérios do dia da semana. Toque no cartão para rezar: as orações vão passando conta por conta, com Próxima e Anterior. A tela fica acesa, o celular vibra a cada Ave-Maria, mais longo depois da 10ª Ave-Maria, e ao terminar uma chuva de pétalas e uma rosa no Jardim.'**
   String get tourRosaryTodayBody;
 
   /// No description provided for @tourExamHeaderTitle.

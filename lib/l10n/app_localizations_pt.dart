@@ -6464,7 +6464,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tourRosaryTodayBody =>
-      'O app já escolhe os mistérios do dia da semana. Toque no cartão para rezar: as orações vão passando conta por conta, com Próxima e Anterior. A tela fica acesa, o celular vibra a cada Ave-Maria, mais longo ao fim de cada mistério, e ao terminar uma chuva de pétalas e uma rosa no Jardim.';
+      'O app já escolhe os mistérios do dia da semana. Toque no cartão para rezar: as orações vão passando conta por conta, com Próxima e Anterior. A tela fica acesa, o celular vibra a cada Ave-Maria, mais longo depois da 10ª Ave-Maria, e ao terminar uma chuva de pétalas e uma rosa no Jardim.';
 
   @override
   String get tourExamHeaderTitle => 'Suas confissões';

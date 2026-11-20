@@ -6455,7 +6455,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tourRosaryTodayBody =>
-      'The app already picks the mysteries for the day of the week. Tap the card to pray: the prayers advance bead by bead with Next and Previous. The screen stays on, the phone vibrates on each Hail Mary, longer at the end of each mystery, and when you finish there is a shower of petals and a rose in your Garden.';
+      'The app already picks the mysteries for the day of the week. Tap the card to pray: the prayers advance bead by bead with Next and Previous. The screen stays on, the phone vibrates on each Hail Mary, longer after the 10th Hail Mary, and when you finish there is a shower of petals and a rose in your Garden.';
 
   @override
   String get tourExamHeaderTitle => 'Your confessions';
