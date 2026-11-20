@@ -1,4 +1,4 @@
-# Gera o pacote de release (APK para F-Droid/GitHub ou .aab para lojas) com as verificações de segurança.
+﻿# Gera o pacote de release (APK para F-Droid/GitHub ou .aab para lojas) com as verificações de segurança.
 #
 # Uso (na pasta do projeto):
 #   pwsh tool/build_release.ps1                # APK para F-Droid/GitHub (com doações)
@@ -29,7 +29,7 @@ if (-not (Test-Path 'android/key.properties')) {
 
 # 2. Doações provisórias (chave PIX, links e endereços "PREENCHER")
 $doacoes = Get-Content 'lib/config/donation_config.dart' -Raw
-if (-not $Loja -and -not $Rascunho -and ($doacoes -match "'[^']*PREENCHER[^']*'")) {
+if (-not $Loja -and -not $Rascunho -and ($doacoes -match "(=|,)\s*'[^']*PREENCHER[^']*'\s*[,;)]")) {
     $problemas += 'lib/config/donation_config.dart ainda tem valores PREENCHER (PIX, cartão ou cripto). Preencha ou deixe vazio o que não usar.'
 }
 
