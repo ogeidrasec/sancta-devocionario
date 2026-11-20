@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:flutter/services.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:provider/provider.dart';
@@ -366,7 +367,7 @@ class _RosaryPrayerPageState extends State<RosaryPrayerPage> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset(style.image, fit: BoxFit.cover, alignment: Alignment.topCenter, cacheWidth: 900),
+                  Image.asset(style.image, fit: BoxFit.cover, alignment: Alignment.topCenter, cacheWidth: AppImages.headerWidth),
                   DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(

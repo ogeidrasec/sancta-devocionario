@@ -22,4 +22,23 @@ void main() {
     }
     expect(used.difference(AppImages.headers.toSet()), isEmpty);
   });
+
+  test('ícone e logo pequenos existem, estão no pubspec e não passam de 640 px', () {
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    for (final path in [AppImages.icon, AppImages.logo]) {
+      expect(File(path).existsSync(), isTrue, reason: path);
+      expect(pubspec.contains(path), isTrue, reason: '$path fora do pubspec');
+      expect(File(path).lengthSync(), lessThan(200 * 1024), reason: path);
+    }
+    // os originais grandes não vão mais dentro do app
+    expect(pubspec.contains('    - lib/imgs/sancta_icon.png'), isFalse);
+    expect(pubspec.contains('    - lib/imgs/sancta_splashscreen.png'), isFalse);
+  });
+
+  test('nenhuma página usa largura fixa de imagem (usa a da tela)', () {
+    for (final f in Directory('lib').listSync(recursive: true).whereType<File>()) {
+      if (!f.path.endsWith('.dart')) continue;
+      expect(f.readAsStringSync().contains('cacheWidth: 900'), isFalse, reason: f.path);
+    }
+  });
 }

@@ -50,9 +50,21 @@ class PrayerData {
     }
   }
 
+  static List<Map<String, dynamic>>? _cache;
+  static String? _cacheLocale;
+
+  /// Catálogo de orações no idioma do app. É montado uma vez por idioma e
+  /// reaproveitado (antes era refeito a cada letra digitada na busca).
   static List<Map<String, dynamic>> getAllPrayers(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    if (_cache == null || _cacheLocale != l10n.localeName) {
+      _cache = List.unmodifiable(_buildAllPrayers(l10n));
+      _cacheLocale = l10n.localeName;
+    }
+    return _cache!;
+  }
 
+  static List<Map<String, dynamic>> _buildAllPrayers(AppLocalizations l10n) {
     return [
       // --- Orações Principais ---
       {

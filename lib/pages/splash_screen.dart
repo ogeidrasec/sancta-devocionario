@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _initializeApp() async {
     // Decodifica as fotos das páginas enquanto a splash aparece (mesmo tamanho
     // dos cabeçalhos), para nenhuma página abrir sem imagem.
-    final images = AppImages.precacheAll(context);
+    final images = AppImages.precacheStart(context);
 
     // Minimum delay to ensure the splash screen is visible
     final minDelay = Future.delayed(const Duration(milliseconds: 800));
@@ -121,7 +121,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             // Splash Image
             Image.asset(
-              'lib/imgs/sancta_splashscreen.png',
+              AppImages.logo,
               width: 250, 
               height: 250,
               fit: BoxFit.contain,

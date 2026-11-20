@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:sanctaconscientia/widgets/app_tour.dart';
 import 'package:sanctaconscientia/theme/app_colors.dart';
 import 'package:sanctaconscientia/l10n/app_localizations.dart';
@@ -123,7 +124,7 @@ class RosaryMysteriesPage extends StatelessWidget {
               background: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset('lib/imgs/terco_page.webp', fit: BoxFit.cover, cacheWidth: 900),
+                  Image.asset('lib/imgs/terco_page.webp', fit: BoxFit.cover, cacheWidth: AppImages.headerWidth),
                   Container(color: Colors.black.withValues(alpha: 0.3)),
                 ],
               ),

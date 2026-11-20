@@ -1,0 +1,1 @@
+Lighter on basic phones: uses less memory at startup, prayer search no longer slows the keyboard, and the Garden responds faster to taps.

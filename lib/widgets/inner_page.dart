@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:flutter/services.dart';
 import 'package:sanctaconscientia/theme/app_colors.dart';
 
@@ -54,7 +55,7 @@ class InnerPageScaffold extends StatelessWidget {
                 fit: StackFit.expand,
                 children: [
                   if (image != null)
-                    Image.asset(image!, fit: BoxFit.cover, alignment: Alignment.topCenter, cacheWidth: 900),
+                    Image.asset(image!, fit: BoxFit.cover, alignment: Alignment.topCenter, cacheWidth: AppImages.headerWidth),
                   DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -261,7 +262,7 @@ class CircleIcon extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      decoration: BoxDecoration(color: color.withValues(alpha: 0.12), shape: BoxShape.circle),
+      decoration: BoxDecoration(color: color.withValues(alpha: color.a * 0.12), shape: BoxShape.circle),
       child: Icon(icon, color: color, size: size * 0.5),
     );
   }

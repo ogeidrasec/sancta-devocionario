@@ -139,11 +139,13 @@ void main() {
       expect(find.text('CATEGORIAS'), findsOneWidget);
 
       await tester.enterText(find.byType(TextField), 'contriçao');
+      await tester.pump(const Duration(milliseconds: 250)); // espera da busca
       await tester.pumpAndSettle();
       expect(find.text('Ato de Contrição'), findsWidgets);
       expect(find.text('CATEGORIAS'), findsNothing);
 
       await tester.enterText(find.byType(TextField), 'xilofone');
+      await tester.pump(const Duration(milliseconds: 250)); // espera da busca
       await tester.pumpAndSettle();
       expect(find.textContaining('Nenhuma oração encontrada'), findsOneWidget);
 

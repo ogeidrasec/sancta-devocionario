@@ -1,0 +1,1 @@
+Mais leve em celulares simples: usa menos memória ao abrir, a busca de orações não trava o teclado e o Jardim responde mais rápido ao toque.

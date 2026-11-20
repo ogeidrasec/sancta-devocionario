@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:sanctaconscientia/theme/app_colors.dart';
 import 'package:sanctaconscientia/l10n/app_localizations.dart';
 import 'package:sanctaconscientia/pages/configuracoes_page.dart';
@@ -47,7 +48,7 @@ class AppDrawer extends StatelessWidget {
                   child: ClipOval(
                     child: Transform.scale(
                       scale: 1.8,
-                      child: Image.asset('lib/imgs/sancta_icon.png', fit: BoxFit.cover),
+                      child: Image.asset(AppImages.icon, fit: BoxFit.cover),
                     ),
                   ),
                 ),

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:sanctaconscientia/utils/content_search.dart';
 import 'package:sanctaconscientia/widgets/inner_page.dart';
 import 'package:sanctaconscientia/widgets/search_field.dart';
@@ -27,9 +30,28 @@ class _DevotionalHomePageState extends State<DevotionalHomePage> {
   final Map<String, ExpansibleController> _controllers = {};
   final TextEditingController _searchController = TextEditingController();
   String _query = '';
+  Timer? _debounce;
+
+  /// Busca só depois de uma pausa curta na digitação (em celulares simples,
+  /// buscar a cada letra deixava o teclado lento). Apagar tudo volta na hora.
+  void _onQueryChanged(String v) {
+    _debounce?.cancel();
+    if (v.trim().isEmpty) {
+      setState(() => _query = v);
+      return;
+    }
+    _debounce = Timer(const Duration(milliseconds: 200), () {
+      if (mounted) setState(() => _query = v);
+    });
+  }
+
+  // listas por categoria, refeitas só quando o catálogo muda (idioma)
+  List<Map<String, dynamic>>? _catalogFor;
+  final Map<String, List<Map<String, dynamic>>> _byCategory = {};
 
   @override
   void dispose() {
+    _debounce?.cancel();
     _searchController.dispose();
     super.dispose();
   }
@@ -63,8 +85,12 @@ class _DevotionalHomePageState extends State<DevotionalHomePage> {
     final l10n = AppLocalizations.of(context)!;
     final allPrayers = PrayerData.getAllPrayers(context);
 
+    if (!identical(_catalogFor, allPrayers)) {
+      _catalogFor = allPrayers;
+      _byCategory.clear();
+    }
     List<Map<String, dynamic>> byCategory(String c) =>
-        allPrayers.where((p) => p['category'] == c).toList();
+        _byCategory.putIfAbsent(c, () => allPrayers.where((p) => p['category'] == c).toList());
 
     final categories = <_Category>[
       _Category(l10n.catPrayersMain, Icons.star, AppColors.themeColor, byCategory('main')),
@@ -97,7 +123,7 @@ class _DevotionalHomePageState extends State<DevotionalHomePage> {
               background: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset('lib/imgs/oracoes_page.webp', fit: BoxFit.cover, cacheWidth: 900),
+                  Image.asset('lib/imgs/oracoes_page.webp', fit: BoxFit.cover, cacheWidth: AppImages.headerWidth),
                   Container(color: Colors.black.withValues(alpha: 0.3)),
                 ],
               ),
@@ -113,7 +139,7 @@ class _DevotionalHomePageState extends State<DevotionalHomePage> {
                   child: AppSearchField(
                   controller: _searchController,
                   hint: l10n.searchPrayersHint,
-                  onChanged: (v) => setState(() => _query = v),
+                  onChanged: _onQueryChanged,
                 ),
                 ),
                 const SizedBox(height: 16),

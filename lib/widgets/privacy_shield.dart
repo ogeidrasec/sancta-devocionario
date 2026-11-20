@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:sanctaconscientia/theme/app_colors.dart';
 
 /// Indica se há conteúdo sensível (Exame de consciência) destravado na tela.
@@ -54,7 +55,7 @@ class _PrivacyShieldState extends State<PrivacyShield> with WidgetsBindingObserv
                 color: AppColors.primaryBg,
                 child: Center(
                   child: Image.asset(
-                    'lib/imgs/sancta_splashscreen.png',
+                    AppImages.logo,
                     width: 160,
                     height: 160,
                   ),

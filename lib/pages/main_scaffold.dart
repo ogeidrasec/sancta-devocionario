@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:provider/provider.dart';
 import 'package:sanctaconscientia/providers/prayer_provider.dart';
 import 'package:sanctaconscientia/pages/devotional_home_page.dart';
@@ -36,6 +39,8 @@ class MainScaffold extends StatefulWidget {
 
 class MainScaffoldState extends State<MainScaffold> with WidgetsBindingObserver {
   late int _currentIndex = widget.initialIndex;
+  bool _mysteriesReady = false;
+  Timer? _imagesTimer;
   final Set<int> _visited = {};
   bool _tour = false;
 
@@ -89,6 +94,11 @@ class MainScaffoldState extends State<MainScaffold> with WidgetsBindingObserver 
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _checkLaunchPayload();
+      // Fotos das outras abas: logo depois de abrir, uma por vez, para não
+      // pesar na entrada. As dos mistérios só quando o Terço é aberto.
+      _imagesTimer = Timer(const Duration(milliseconds: 1200), () {
+        if (mounted) AppImages.precacheTabs(context);
+      });
       if (widget.startTour && mounted) {
         setState(() => _tour = true);
         _warmUpTabs();
@@ -98,6 +108,7 @@ class MainScaffoldState extends State<MainScaffold> with WidgetsBindingObserver 
 
   @override
   void dispose() {
+    _imagesTimer?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -210,6 +221,10 @@ class MainScaffoldState extends State<MainScaffold> with WidgetsBindingObserver 
   }
 
   void switchToTab(int index) {
+    if (index == 3 && !_mysteriesReady) {
+      _mysteriesReady = true;
+      AppImages.precacheMysteries(context);
+    }
     setState(() {
       _currentIndex = index;
     });

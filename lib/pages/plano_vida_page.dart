@@ -1,5 +1,6 @@
 import 'package:sanctaconscientia/utils/date_text.dart';
 import 'package:flutter/material.dart';
+import 'package:sanctaconscientia/utils/app_images.dart';
 import 'package:sanctaconscientia/widgets/add_prayer_sheet.dart';
 import 'package:sanctaconscientia/widgets/app_tour.dart';
 
@@ -59,7 +60,7 @@ class PlanoVidaPage extends StatelessWidget {
                     Image.asset(
                       'lib/imgs/jardim_page.webp',
                       fit: BoxFit.cover,
-                      cacheWidth: 900,
+                      cacheWidth: AppImages.headerWidth,
                     ),
                     Container(
                       decoration: BoxDecoration(

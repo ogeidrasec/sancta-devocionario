@@ -115,6 +115,30 @@ class _GardenHeatmapState extends State<GardenHeatmap> {
 
   static DateTime _dateOnly(DateTime d) => DateTime(d.year, d.month, d.day);
 
+  // Cálculo dos 378 dias guardado: tocar num dia só muda a seleção. É refeito
+  // quando os dados mudam (os providers avisam por didChangeDependencies) ou
+  // quando vira o dia.
+  Map<DateTime, _DayInfo>? _dayInfoCache;
+  DateTime? _dayInfoStart;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _dayInfoCache = null;
+  }
+
+  Map<DateTime, _DayInfo> _cachedDayInfo(
+    PrayerProvider prayers,
+    ConfessionProvider confessions,
+    DateTime startDate,
+  ) {
+    if (_dayInfoCache == null || _dayInfoStart != startDate) {
+      _dayInfoCache = _buildDayInfo(prayers, confessions, startDate);
+      _dayInfoStart = startDate;
+    }
+    return _dayInfoCache!;
+  }
+
   Map<DateTime, _DayInfo> _buildDayInfo(
     PrayerProvider prayers,
     ConfessionProvider confessions,
@@ -208,10 +232,16 @@ class _GardenHeatmapState extends State<GardenHeatmap> {
   }
 
   @override
-  Widget build(BuildContext context) => ValueListenableBuilder<bool>(
-        valueListenable: GardenDemo.active,
-        builder: (context, demo, _) => _buildGarden(context, demo),
-      );
+  Widget build(BuildContext context) {
+    // Escuta os dados aqui (no contexto do próprio Jardim) para que uma
+    // mudança chegue a didChangeDependencies e refaça o cálculo dos dias.
+    Provider.of<PrayerProvider>(context);
+    Provider.of<ConfessionProvider>(context);
+    return ValueListenableBuilder<bool>(
+      valueListenable: GardenDemo.active,
+      builder: (context, demo, _) => _buildGarden(context, demo),
+    );
+  }
 
   Widget _buildGarden(BuildContext context, bool demo) {
     final l10n = AppLocalizations.of(context)!;
@@ -226,7 +256,7 @@ class _GardenHeatmapState extends State<GardenHeatmap> {
     final today = _dateOnly(now);
     final dayInfo = demo
         ? _demoDayInfo(startDate, today)
-        : _buildDayInfo(prayerProvider, confessionProvider, startDate);
+        : _cachedDayInfo(prayerProvider, confessionProvider, startDate);
     final selected = demo ? null : _selected;
     final daysWithPrayer = dayInfo.values.where((i) => i.count > 0).length;
     // Tempo litúrgico: a cor do tempo aparece na borda e na etiqueta do Jardim

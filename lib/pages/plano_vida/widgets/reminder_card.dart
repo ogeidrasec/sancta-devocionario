@@ -19,17 +19,21 @@ class ReminderCard extends StatelessWidget {
 
   const ReminderCard({super.key, required this.reminder});
 
-  Widget _line(IconData icon, String text, {Color? color, FontWeight? weight}) => Padding(
+  /// Lembrete desligado fica esmaecido. A transparência vai direto na cor
+  /// (sem widget Opacity, que custa uma camada extra na GPU).
+  static Color _fade(Color c, double alpha) => c.withValues(alpha: c.a * alpha);
+
+  Widget _line(IconData icon, String text, {Color? color, FontWeight? weight, double alpha = 1}) => Padding(
         padding: const EdgeInsets.only(top: 6),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, size: 16, color: color ?? AppColors.secondaryText),
+            Icon(icon, size: 16, color: _fade(color ?? AppColors.secondaryText, alpha)),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
                 text,
-                style: TextStyle(fontSize: 13, height: 1.3, color: color ?? AppColors.primaryText, fontWeight: weight),
+                style: TextStyle(fontSize: 13, height: 1.3, color: _fade(color ?? AppColors.primaryText, alpha), fontWeight: weight),
               ),
             ),
           ],
@@ -44,6 +48,7 @@ class ReminderCard extends StatelessWidget {
     final isLiturgical = reminder.id.startsWith('liturgical_');
     final isConfession = reminder.id == 'confession_reminder';
     final active = reminder.isActive;
+    final fade = active ? 1.0 : 0.55;
     // O lembrete da confissão toca uma vez por data; quem repete é o ciclo
     // ("a cada 2 semanas depois de cada confissão"), guardado na confissão.
     final confession = isConfession ? Provider.of<ConfessionProvider>(context) : null;
@@ -56,24 +61,21 @@ class ReminderCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Opacity(opacity: active ? 1 : 0.5, child: CircleIcon(icon: style.icon, color: style.color, size: 44)),
+              CircleIcon(icon: style.icon, color: _fade(style.color, active ? 1 : 0.5), size: 44),
               const SizedBox(width: 12),
               Expanded(
-                child: Opacity(
-                  opacity: active ? 1 : 0.55,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        localizedReminderTitle(context, reminder),
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.primaryText),
-                      ),
-                      Text(
-                        reminder.getTypeLabel(context),
-                        style: const TextStyle(fontSize: 12, color: AppColors.secondaryText),
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      localizedReminderTitle(context, reminder),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: _fade(AppColors.primaryText, fade)),
+                    ),
+                    Text(
+                      reminder.getTypeLabel(context),
+                      style: TextStyle(fontSize: 12, color: _fade(AppColors.secondaryText, fade)),
+                    ),
+                  ],
                 ),
               ),
               Switch(
@@ -85,38 +87,38 @@ class ReminderCard extends StatelessWidget {
               ),
             ],
           ),
-          Opacity(
-            opacity: active ? 1 : 0.55,
-            child: Padding(
+          Padding(
               padding: const EdgeInsets.only(right: 8, bottom: 2),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _line(Icons.access_time, reminder.getTimesString()),
+                  _line(Icons.access_time, reminder.getTimesString(), alpha: fade),
                   _line(
                     Icons.repeat,
                     isConfession
                         ? confessionCycleText(l10n, confession!.confessionInterval)
                         : reminder.getFrequencyDescription(context),
+                    alpha: fade,
                   ),
                   if (isConfession && confession!.nextConfessionDate != null)
                     _line(
                       Icons.volunteer_activism,
                       l10n.confessionReminderPlanned(fmtDate(context, confession.nextConfessionDate!)),
+                      alpha: fade,
                     ),
                   if (reminder.maxOccurrences != null && reminder.startDate != null)
-                    _line(Icons.timelapse, _getRemainingText(context), color: AppColors.themeColor),
+                    _line(Icons.timelapse, _getRemainingText(context), color: AppColors.themeColor, alpha: fade),
                   if (nextOccurrence != null)
                     _line(
                       Icons.event,
                       '${l10n.statsNext}${_formatOccurrence(context, nextOccurrence)}',
                       weight: FontWeight.w600,
+                      alpha: fade,
                     )
                   else if (active && reminder.maxOccurrences != null)
-                    _line(Icons.check_circle, l10n.novenaCompleted, color: AppColors.successColor, weight: FontWeight.w600),
+                    _line(Icons.check_circle, l10n.novenaCompleted, color: AppColors.successColor, weight: FontWeight.w600, alpha: fade),
                 ],
               ),
-            ),
           ),
           Align(
             alignment: Alignment.centerRight,
