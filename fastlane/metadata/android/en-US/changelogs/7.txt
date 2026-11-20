@@ -1,0 +1,1 @@
+Fix: on the Today tab, scrolling goes back to the top and the Garden shows in full again.

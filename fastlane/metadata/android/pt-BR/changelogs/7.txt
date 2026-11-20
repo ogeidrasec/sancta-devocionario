@@ -1,0 +1,1 @@
+Correção: na aba Hoje, a rolagem volta até o topo e o Jardim aparece inteiro de novo.
