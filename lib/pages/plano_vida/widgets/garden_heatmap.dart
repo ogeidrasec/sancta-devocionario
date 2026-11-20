@@ -234,7 +234,8 @@ class _GardenHeatmapState extends State<GardenHeatmap> {
     final seasonColor = LiturgicalCalendar.getSeasonColor(season);
     final seasonName = LiturgicalCalendar.getSeasonName(l10n, season);
 
-    const monthStyle = TextStyle(fontSize: 11, color: Color(0xFF7A6A4F));
+    // herda a fonte do app (o TextPainter do desenho não herda sozinho)
+    final monthStyle = DefaultTextStyle.of(context).style.copyWith(fontSize: 11, color: const Color(0xFF7A6A4F));
 
     return RepaintBoundary(
       child: Container(
