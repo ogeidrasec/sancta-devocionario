@@ -15,7 +15,11 @@ class TourPreview {
 /// mostrar os pontos dela: se a pessoa tinha rolado a lista ou aberto uma
 /// categoria (menu sanfonado), o campo de busca e o resto ficariam fora da tela.
 class AppTourScroll {
-  static final today = ScrollController();
+  /// A aba Hoje fica dentro do NestedScrollView do Jardim: a lista dela usa o
+  /// controle de rolagem da própria página (PrimaryScrollController), que a
+  /// aba registra aqui. Um controle próprio desligava a lista do cabeçalho e
+  /// a rolagem não voltava mais ao topo.
+  static ScrollController today = ScrollController();
   static final prayers = ScrollController();
   static final novenas = ScrollController();
   static final rosary = ScrollController();

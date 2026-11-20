@@ -128,8 +128,12 @@ class HojeTab extends StatelessWidget {
         backgroundColor: AppColors.accentGold,
         child: const Icon(Icons.add, color: AppColors.primaryText),
       )),
-      body: ListView(
-        controller: AppTourScroll.today,
+      body: Builder(builder: (context) {
+        // Rolagem ligada ao cabeçalho do Jardim (NestedScrollView); o guia
+        // usa este mesmo controle para voltar ao topo.
+        AppTourScroll.today = PrimaryScrollController.of(context);
+        return ListView(
+        primary: true,
         // espaço extra embaixo: o botão + não cobre o último cartão
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
         children: [
@@ -185,7 +189,8 @@ class HojeTab extends StatelessWidget {
           _buildQuickStats(context, prayerProvider, today),
           const SizedBox(height: 80),
         ],
-      ),
+      );
+      }),
     );
   }
 

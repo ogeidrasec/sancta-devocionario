@@ -83,4 +83,51 @@ void main() {
       await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 800)));
     });
   }
+
+  testWidgets('aba Hoje: rolar para baixo e voltar mostra o Jardim inteiro de novo', (tester) async {
+    tester.view.physicalSize = const Size(393, 852) * 2.75;
+    tester.view.devicePixelRatio = 2.75;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(const MyApp());
+    await pumpFor(tester, find.byKey(const ValueKey('onb_skip')));
+    await tester.tap(find.byKey(const ValueKey('onb_skip')));
+    await pumpFor(tester, find.byKey(const ValueKey('onb_tour_skip')));
+    await tester.pump(const Duration(milliseconds: 600));
+    await tester.runAsync(() async {
+      await tester.tap(find.byKey(const ValueKey('onb_tour_skip')));
+      await Future.delayed(const Duration(milliseconds: 500));
+    });
+    for (var i = 0; i < 40; i++) {
+      await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 20)));
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    final garden = find.byType(GardenHeatmap);
+    await pumpFor(tester, garden, max: 400);
+    for (var i = 0; i < 100 && tester.getRect(garden).height < 200; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    final dialogLater = find.byKey(const ValueKey('project_dialog_later'));
+    if (dialogLater.evaluate().isNotEmpty) {
+      await tester.tap(dialogLater);
+      await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    }
+    final topBefore = tester.getRect(garden).top;
+    // arrasta pelo cabeçalho (foto) para cima: ele se recolhe
+    await tester.dragFrom(const Offset(200, 60), const Offset(0, -300));
+    await tester.pumpAndSettle(const Duration(milliseconds: 100));
+
+    // rola bem para baixo e depois volta todo o caminho para cima
+    for (var i = 0; i < 4; i++) {
+      await tester.drag(find.byType(ListView).first, const Offset(0, -500));
+      await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    }
+    for (var i = 0; i < 8; i++) {
+      await tester.drag(find.byType(ListView).first, const Offset(0, 500));
+      await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    }
+    expect(tester.getRect(garden).top, moreOrLessEquals(topBefore, epsilon: 1),
+        reason: 'o topo do Jardim volta ao lugar, sem ficar cortado');
+    expect(tester.takeException(), isNull);
+    await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 800)));
+  });
 }
