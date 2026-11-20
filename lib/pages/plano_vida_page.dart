@@ -40,11 +40,14 @@ class PlanoVidaPage extends StatelessWidget {
               // ícone do menu em branco: o padrão era escuro sobre a foto
               iconTheme: const IconThemeData(color: Colors.white),
               leading: Builder(
-                builder: (context) => IconButton(
-                  key: AppTourKeys.menu,
-                  icon: const Icon(Icons.menu, color: Colors.white),
-                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-                  onPressed: () => Scaffold.of(context).openDrawer(),
+                builder: (context) => TourAnchor(
+                  ref: AppTourKeys.menu,
+                  child: IconButton(
+                    key: const ValueKey('tour_menu_button'),
+                    icon: const Icon(Icons.menu, color: Colors.white),
+                    tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                  ),
                 ),
               ),
               flexibleSpace: FlexibleSpaceBar(
@@ -84,9 +87,9 @@ class PlanoVidaPage extends StatelessWidget {
                 indicatorWeight: 3,
                 dividerColor: Colors.transparent,
                 tabs: [
-                  Tab(key: AppTourKeys.tabToday, text: AppLocalizations.of(context)!.tabToday, icon: const Icon(Icons.wb_sunny_outlined)),
-                  Tab(key: AppTourKeys.tabCalendar, text: AppLocalizations.of(context)!.tabCalendar, icon: const Icon(Icons.calendar_month)),
-                  Tab(key: AppTourKeys.tabReminders, text: AppLocalizations.of(context)!.tabReminders, icon: const Icon(Icons.notifications_active)),
+                  TourAnchorTab(ref: AppTourKeys.tabToday, child: Tab(text: AppLocalizations.of(context)!.tabToday, icon: const Icon(Icons.wb_sunny_outlined))),
+                  TourAnchorTab(ref: AppTourKeys.tabCalendar, child: Tab(text: AppLocalizations.of(context)!.tabCalendar, icon: const Icon(Icons.calendar_month))),
+                  TourAnchorTab(ref: AppTourKeys.tabReminders, child: Tab(text: AppLocalizations.of(context)!.tabReminders, icon: const Icon(Icons.notifications_active))),
                 ],
               ),
             ),

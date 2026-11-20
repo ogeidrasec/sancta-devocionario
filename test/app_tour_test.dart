@@ -108,7 +108,7 @@ void main() {
       }
       await tester.tap(find.byKey(const ValueKey('tour_next')));
     }
-    await waitFor(tester, find.byKey(AppTourKeys.menu));
+    await waitFor(tester, find.byKey(const ValueKey('tour_menu_button')));
     await settle(tester);
     expect(find.byKey(const ValueKey('tour_bubble')), findsNothing, reason: 'termina e fecha');
     for (var i = 0; i < 20; i++) {
@@ -200,7 +200,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('tour_next')));
       await waitFor(tester, find.text('${i + 2}/$_total'));
     }
-    final field = tester.getRect(find.byKey(AppTourKeys.prayerSearch));
+    final field = tester.getRect(find.byWidgetPredicate((w) => w is TourAnchor && w.ref == AppTourKeys.prayerSearch));
     expect(field.top, greaterThan(100), reason: 'campo abaixo da barra do topo');
     expect(field.bottom, lessThan(891));
     expect(AppTourScroll.prayers.offset, lessThan(5), reason: 'a lista voltou ao topo');
@@ -228,7 +228,7 @@ void main() {
     await pumpApp(tester, startTour: false);
     expect(find.byKey(const ValueKey('tour_bubble')), findsNothing);
     await tester.pump(const Duration(seconds: 1));
-    await tester.tap(find.byKey(AppTourKeys.menu));
+    await tester.tap(find.byKey(const ValueKey('tour_menu_button')));
     for (var i = 0; i < 30 && find.text('Guia do app').evaluate().isEmpty; i++) {
       await tester.pump(const Duration(milliseconds: 100));
     }

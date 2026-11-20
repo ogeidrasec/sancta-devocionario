@@ -6182,7 +6182,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nudgeBody =>
-      'This app is free and was made to help with the costs of our wedding. If it helps your prayer life, please consider a donation or pray for us.';
+      'This app is free and was born to help with our wedding expenses. If it does good for your prayer life, please consider a donation, or pray a Hail Mary for us.';
 
   @override
   String get nudgeSupport => 'Support';

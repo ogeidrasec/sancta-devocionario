@@ -36,7 +36,7 @@ O Buy Me a Coffee **não aceita PIX**. Por isso o PIX fica separado e o Buy Me a
 
 **Fase 3 — Lembrete gentil de tempos em tempos** ✅
 - Um cartão discreto na aba **Hoje**, que nunca aparece durante uma oração, o terço ou o Exame.
-- Regras sugeridas: não aparece nos primeiros 3 dias de uso; depois, no máximo 1 vez a cada 14 dias.
+- Regras: não aparece nos primeiros 3 dias de uso; depois, 1 dia por mês (desde 19/11/2026; antes era a cada 14 dias).
 - Botões **Apoiar**, **Vou rezar por vocês** e **Agora não**. Quem disser que já apoiou não vê o cartão por 90 dias.
 
 **Fase 4 — Boas-vindas** ✅

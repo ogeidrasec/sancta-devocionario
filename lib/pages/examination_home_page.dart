@@ -228,8 +228,7 @@ class _ExaminationHomePageState extends State<ExaminationHomePage> {
                 SliverToBoxAdapter(
                   child: Consumer<ConfessionProvider>(
                     builder: (context, confessionProvider, child) {
-                      return KeyedSubtree(
-                        key: AppTourKeys.examHeader,
+                      return TourAnchor(ref: AppTourKeys.examHeader,
                         child: HomeHeader(
                         lastConfessionDate: confessionProvider.dataUltimaConfissao,
                         proximaConfissao: confessionProvider.nextConfessionDate,
@@ -253,7 +252,7 @@ class _ExaminationHomePageState extends State<ExaminationHomePage> {
                 if (_query.trim().isNotEmpty)
                   _buildSearchResults(context, l10n, categories)
                 else ...[
-                SliverToBoxAdapter(child: KeyedSubtree(key: AppTourKeys.examJornada, child: const JornadaBanner())),
+                SliverToBoxAdapter(child: TourAnchor(ref: AppTourKeys.examJornada, child: const JornadaBanner())),
                 SliverToBoxAdapter(
                   child: Consumer<ConfessionProvider>(
                     builder: (context, confessionProvider, child) {
@@ -284,7 +283,7 @@ class _ExaminationHomePageState extends State<ExaminationHomePage> {
                       return Column(
                         children: [
                           section(l10n.examSectionPrepare, prepare),
-                          KeyedSubtree(key: AppTourKeys.examSections, child: section(l10n.examSectionExamine, examine)),
+                          TourAnchor(ref: AppTourKeys.examSections, child: section(l10n.examSectionExamine, examine)),
                           section(l10n.examSectionConfess, confess),
                           const SizedBox(height: 12),
                         ],
@@ -334,8 +333,7 @@ class _ExaminationHomePageState extends State<ExaminationHomePage> {
                           ],
                         ),
                         const SizedBox(height: 8),
-                        KeyedSubtree(
-                          key: AppTourKeys.examGuide,
+                        TourAnchor(ref: AppTourKeys.examGuide,
                           child: PillButton(
                           label: l10n.generateGuideButton,
                           icon: Icons.arrow_forward,

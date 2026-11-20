@@ -121,19 +121,20 @@ class HojeTab extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      floatingActionButton: FloatingActionButton(
-        key: AppTourKeys.addButton,
+      floatingActionButton: TourAnchor(
+        ref: AppTourKeys.addButton,
+        child: FloatingActionButton(
         onPressed: () => PlanoVidaPage.showPrayerSelectionDialog(context, today),
         backgroundColor: AppColors.accentGold,
         child: const Icon(Icons.add, color: AppColors.primaryText),
-      ),
+      )),
       body: ListView(
         controller: AppTourScroll.today,
         // espaço extra embaixo: o botão + não cobre o último cartão
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
         children: [
           // Jardim da Alma (heatmap): é o coração do app, fica no topo
-          KeyedSubtree(key: AppTourKeys.garden, child: const GardenHeatmap()),
+          TourAnchor(ref: AppTourKeys.garden, child: const GardenHeatmap()),
           // O que já foi feito hoje: resumo discreto, abre ao tocar
           if (done.isNotEmpty) ...[
             const SizedBox(height: 10),

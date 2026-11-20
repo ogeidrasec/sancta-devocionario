@@ -4,15 +4,15 @@ import 'package:sanctaconscientia/services/database_service.dart';
 ///
 /// Regras:
 /// - nunca nos primeiros [firstDays] dias de uso;
-/// - depois, aparece em um único dia a cada [interval] dias (some sozinho no
+/// - depois, aparece em um único dia por mês ([interval]) (some sozinho no
 ///   dia seguinte, mesmo sem resposta);
 /// - "Agora não" esconde até o próximo ciclo;
-/// - "Vou rezar por vocês" adia por [prayerSnooze];
+/// - "Vou rezar por vocês" adia até o mês seguinte ([prayerSnooze]);
 /// - "Já apoiei" adia por [supportedSnooze].
 class SupportNudge {
   static const firstDays = 3;
-  static const interval = Duration(days: 14);
-  static const prayerSnooze = Duration(days: 60);
+  static const interval = Duration(days: 30);
+  static const prayerSnooze = Duration(days: 30);
   static const supportedSnooze = Duration(days: 90);
 
   static const firstOpenKey = 'support_first_open';

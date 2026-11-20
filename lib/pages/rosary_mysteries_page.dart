@@ -135,16 +135,17 @@ class RosaryMysteriesPage extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildListDelegate([
                 // Quantos terços de hoje faltam para completar o Rosário
-                KeyedSubtree(key: AppTourKeys.rosaryProgress, child: _RosaryProgress(traditional: isTraditional)),
+                TourAnchor(ref: AppTourKeys.rosaryProgress, child: _RosaryProgress(traditional: isTraditional)),
                 const SizedBox(height: 16),
                 // Mistério de hoje: destaque
-                _TodayCard(
-                  key: AppTourKeys.rosaryToday,
+                TourAnchor(
+                  ref: AppTourKeys.rosaryToday,
+                  child: _TodayCard(
                   type: todayEntry.$1,
                   title: todayEntry.$2,
                   days: todayEntry.$3,
                   onTap: () => _open(context, todayEntry.$1),
-                ),
+                )),
                 const SizedBox(height: 28),
                 Padding(
                   padding: const EdgeInsets.only(left: 4, bottom: 10),

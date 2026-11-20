@@ -108,11 +108,13 @@ class _DevotionalHomePageState extends State<DevotionalHomePage> {
             padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                AppSearchField(
-                  key: AppTourKeys.prayerSearch,
+                TourAnchor(
+                  ref: AppTourKeys.prayerSearch,
+                  child: AppSearchField(
                   controller: _searchController,
                   hint: l10n.searchPrayersHint,
                   onChanged: (v) => setState(() => _query = v),
+                ),
                 ),
                 const SizedBox(height: 16),
                 if (_query.trim().isNotEmpty)
@@ -123,12 +125,14 @@ class _DevotionalHomePageState extends State<DevotionalHomePage> {
                 const SizedBox(height: 14),
                 _buildTools(context, l10n),
                 const SizedBox(height: 28),
-                KeyedSubtree(
-                  key: AppTourKeys.prayerGuides,
+                TourAnchor(
+                  ref: AppTourKeys.prayerGuides,
+                  child: KeyedSubtree(
                   child: Column(children: [
                     _sectionTitle(l10n.prayersSectionGuides),
                     _buildGuides(context, l10n),
                   ]),
+                ),
                 ),
                 const SizedBox(height: 16),
                 Padding(

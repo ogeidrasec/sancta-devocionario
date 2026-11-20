@@ -6191,7 +6191,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get nudgeBody =>
-      'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação ou reze por nós.';
+      'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação, ou reze uma Ave-Maria por nós.';
 
   @override
   String get nudgeSupport => 'Apoiar';

@@ -252,23 +252,23 @@ class MainScaffoldState extends State<MainScaffold> with WidgetsBindingObserver 
         unselectedFontSize: 12,
         items: [
           BottomNavigationBarItem(
-            icon: KeyedSubtree(key: AppTourKeys.navGarden, child: const Icon(Icons.park)),
+            icon: TourAnchor(ref: AppTourKeys.navGarden, child: const Icon(Icons.park)),
             label: l10n.moreTitle,
           ),
           BottomNavigationBarItem(
-            icon: KeyedSubtree(key: AppTourKeys.navPrayers, child: const Icon(Icons.church)),
+            icon: TourAnchor(ref: AppTourKeys.navPrayers, child: const Icon(Icons.church)),
             label: l10n.devotionalTitle,
           ),
           BottomNavigationBarItem(
-            icon: KeyedSubtree(key: AppTourKeys.navNovenas, child: const Icon(Icons.local_florist)),
+            icon: TourAnchor(ref: AppTourKeys.navNovenas, child: const Icon(Icons.local_florist)),
             label: l10n.prayersTitle,
           ),
           BottomNavigationBarItem(
-            icon: KeyedSubtree(key: AppTourKeys.navRosary, child: const Icon(Icons.auto_awesome)),
+            icon: TourAnchor(ref: AppTourKeys.navRosary, child: const Icon(Icons.auto_awesome)),
             label: l10n.rosaryTitle,
           ),
           BottomNavigationBarItem(
-            icon: KeyedSubtree(key: AppTourKeys.navExam, child: const Icon(Icons.assignment)),
+            icon: TourAnchor(ref: AppTourKeys.navExam, child: const Icon(Icons.assignment)),
             label: l10n.examinationMenuTitle,
           ),
         ],

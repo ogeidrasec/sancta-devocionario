@@ -28,15 +28,15 @@ void main() {
       expect(r.newCycle, DateTime(2026, 3, 4));
     });
 
-    test('aparece só no dia do ciclo e volta 14 dias depois', () {
+    test('aparece só no dia do ciclo e volta um mês depois', () {
       final cycle = DateTime(2026, 3, 4);
       expect(SupportNudge.decide(now: day(3), firstOpen: first, cycleStart: cycle).show, isTrue);
       expect(SupportNudge.decide(now: day(4), firstOpen: first, cycleStart: cycle).show, isFalse,
           reason: 'some sozinho no dia seguinte');
-      expect(SupportNudge.decide(now: day(16), firstOpen: first, cycleStart: cycle).show, isFalse);
-      final back = SupportNudge.decide(now: day(17), firstOpen: first, cycleStart: cycle);
+      expect(SupportNudge.decide(now: day(32), firstOpen: first, cycleStart: cycle).show, isFalse);
+      final back = SupportNudge.decide(now: day(33), firstOpen: first, cycleStart: cycle);
       expect(back.show, isTrue);
-      expect(back.newCycle, DateTime(2026, 3, 18));
+      expect(back.newCycle, DateTime(2026, 4, 3));
     });
 
     test('"Agora não" esconde no mesmo dia', () {
@@ -65,8 +65,9 @@ void main() {
       expect(await SupportNudge.shouldShow(now: day(3).add(const Duration(hours: 5))), isTrue, reason: 'o dia todo');
       await SupportNudge.notNow(now: day(3));
       expect(await SupportNudge.shouldShow(now: day(3)), isFalse);
-      expect(await SupportNudge.shouldShow(now: day(10)), isFalse);
-      expect(await SupportNudge.shouldShow(now: day(17)), isTrue);
+      expect(await SupportNudge.shouldShow(now: day(17)), isFalse);
+      expect(await SupportNudge.shouldShow(now: day(32)), isFalse);
+      expect(await SupportNudge.shouldShow(now: day(33)), isTrue, reason: 'um mês depois');
     });
 
     test('"Já apoiei" some por 90 dias', () async {

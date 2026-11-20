@@ -10451,7 +10451,7 @@ abstract class AppLocalizations {
   /// No description provided for @nudgeBody.
   ///
   /// In pt, this message translates to:
-  /// **'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação ou reze por nós.'**
+  /// **'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação, ou reze uma Ave-Maria por nós.'**
   String get nudgeBody;
 
   /// No description provided for @nudgeSupport.

@@ -75,11 +75,13 @@ class _NovenaHomePageState extends State<NovenaHomePage> {
             padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                AppSearchField(
-                  key: AppTourKeys.novenaSearch,
-                  controller: _searchController,
-                  hint: l10n.searchNovenasHint,
-                  onChanged: (v) => setState(() => _query = v),
+                TourAnchor(
+                  ref: AppTourKeys.novenaSearch,
+                  child: AppSearchField(
+                    controller: _searchController,
+                    hint: l10n.searchNovenasHint,
+                    onChanged: (v) => setState(() => _query = v),
+                  ),
                 ),
                 const SizedBox(height: 16),
                 if (_query.trim().isNotEmpty)
@@ -104,12 +106,10 @@ class _NovenaHomePageState extends State<NovenaHomePage> {
                 _sectionLabel(l10n.novenasAll),
                 for (final n in all)
                   Padding(
-                    key: n == all.first ? AppTourKeys.novenaList : null,
                     padding: const EdgeInsets.only(bottom: 12),
-                    child: _NovenaTile(
-                      novena: n,
-                      onTap: () => _open(context, n.id),
-                    ),
+                    child: n == all.first
+                        ? TourAnchor(ref: AppTourKeys.novenaList, child: _NovenaTile(novena: n, onTap: () => _open(context, n.id)))
+                        : _NovenaTile(novena: n, onTap: () => _open(context, n.id)),
                   ),
                 ],
               ]),

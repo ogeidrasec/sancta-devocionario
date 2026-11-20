@@ -30,34 +30,101 @@ class AppTourScroll {
       };
 }
 
-/// Pontos da tela que o guia ilumina. Cada chave fica em um único widget.
+/// Referência a um ponto da tela que o guia ilumina.
+///
+/// Não usa GlobalKey de propósito: os pontos da barra do topo (menu e
+/// sub-abas) ficam num cabeçalho que o Flutter reconstrói durante o layout, e
+/// uma GlobalKey ali, ao ser "reaproveitada", quebrava o desenho da tela na
+/// primeira abertura do app (o Jardim sumia).
+class TourAnchorRef {
+  final String debugLabel;
+  TourAnchorRef(this.debugLabel);
+  final List<BuildContext> _contexts = [];
+
+  /// O ponto montado mais recente (ou null se não está na tela).
+  BuildContext? get currentContext {
+    for (final c in _contexts.reversed) {
+      if (c.mounted) return c;
+    }
+    return null;
+  }
+
+  @override
+  String toString() => 'TourAnchorRef($debugLabel)';
+}
+
+/// Marca [child] como o ponto [ref] do guia. Não muda nada no layout.
+class TourAnchor extends StatefulWidget {
+  final TourAnchorRef ref;
+  final Widget child;
+  const TourAnchor({super.key, required this.ref, required this.child});
+
+  @override
+  State<TourAnchor> createState() => _TourAnchorState();
+}
+
+class _TourAnchorState extends State<TourAnchor> {
+  @override
+  void initState() {
+    super.initState();
+    widget.ref._contexts.add(context);
+  }
+
+  @override
+  void didUpdateWidget(TourAnchor old) {
+    super.didUpdateWidget(old);
+    if (old.ref != widget.ref) {
+      old.ref._contexts.remove(context);
+      widget.ref._contexts.add(context);
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.ref._contexts.remove(context);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
+}
+
+/// Igual a [TourAnchor], para usar dentro de uma TabBar (mantém a altura da aba).
+class TourAnchorTab extends TourAnchor implements PreferredSizeWidget {
+  const TourAnchorTab({super.key, required super.ref, required Tab super.child});
+
+  @override
+  Size get preferredSize => (child as Tab).preferredSize;
+}
+
+/// Pontos da tela que o guia ilumina.
 class AppTourKeys {
-  static final navGarden = GlobalKey(debugLabel: 'tour_nav_garden');
-  static final navPrayers = GlobalKey(debugLabel: 'tour_nav_prayers');
-  static final navNovenas = GlobalKey(debugLabel: 'tour_nav_novenas');
-  static final navRosary = GlobalKey(debugLabel: 'tour_nav_rosary');
-  static final navExam = GlobalKey(debugLabel: 'tour_nav_exam');
-  static final menu = GlobalKey(debugLabel: 'tour_menu');
-  static final garden = GlobalKey(debugLabel: 'tour_garden');
-  static final tabToday = GlobalKey(debugLabel: 'tour_tab_today');
-  static final tabCalendar = GlobalKey(debugLabel: 'tour_tab_calendar');
-  static final tabReminders = GlobalKey(debugLabel: 'tour_tab_reminders');
-  static final addButton = GlobalKey(debugLabel: 'tour_add');
-  static final prayerSearch = GlobalKey(debugLabel: 'tour_prayer_search');
-  static final prayerGuides = GlobalKey(debugLabel: 'tour_prayer_guides');
-  static final novenaSearch = GlobalKey(debugLabel: 'tour_novena_search');
-  static final novenaList = GlobalKey(debugLabel: 'tour_novena_list');
-  static final rosaryProgress = GlobalKey(debugLabel: 'tour_rosary_progress');
-  static final rosaryToday = GlobalKey(debugLabel: 'tour_rosary_today');
-  static final examHeader = GlobalKey(debugLabel: 'tour_exam_header');
-  static final examJornada = GlobalKey(debugLabel: 'tour_exam_jornada');
-  static final examSections = GlobalKey(debugLabel: 'tour_exam_sections');
-  static final examGuide = GlobalKey(debugLabel: 'tour_exam_guide');
+  static final navGarden = TourAnchorRef('tour_nav_garden');
+  static final navPrayers = TourAnchorRef('tour_nav_prayers');
+  static final navNovenas = TourAnchorRef('tour_nav_novenas');
+  static final navRosary = TourAnchorRef('tour_nav_rosary');
+  static final navExam = TourAnchorRef('tour_nav_exam');
+  static final menu = TourAnchorRef('tour_menu');
+  static final garden = TourAnchorRef('tour_garden');
+  static final tabToday = TourAnchorRef('tour_tab_today');
+  static final tabCalendar = TourAnchorRef('tour_tab_calendar');
+  static final tabReminders = TourAnchorRef('tour_tab_reminders');
+  static final addButton = TourAnchorRef('tour_add');
+  static final prayerSearch = TourAnchorRef('tour_prayer_search');
+  static final prayerGuides = TourAnchorRef('tour_prayer_guides');
+  static final novenaSearch = TourAnchorRef('tour_novena_search');
+  static final novenaList = TourAnchorRef('tour_novena_list');
+  static final rosaryProgress = TourAnchorRef('tour_rosary_progress');
+  static final rosaryToday = TourAnchorRef('tour_rosary_today');
+  static final examHeader = TourAnchorRef('tour_exam_header');
+  static final examJornada = TourAnchorRef('tour_exam_jornada');
+  static final examSections = TourAnchorRef('tour_exam_sections');
+  static final examGuide = TourAnchorRef('tour_exam_guide');
 }
 
 /// Um passo do guia: o que iluminar, em qual aba, e o texto.
 class TourStep {
-  final GlobalKey? target;
+  final TourAnchorRef? target;
   final int? tab;
   final IconData icon;
   final String title;
@@ -267,7 +334,7 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
 
   /// Se o ponto está numa lista que rola na vertical, rola só essa lista até
   /// ele ficar visível (sem mexer em abas ou páginas que rolam na horizontal).
-  Future<void> _scrollTargetIntoView(GlobalKey? key) async {
+  Future<void> _scrollTargetIntoView(TourAnchorRef? key) async {
     final ctx = key?.currentContext;
     if (ctx == null || !ctx.mounted) return;
     try {
@@ -297,7 +364,7 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
     return null;
   }
 
-  Rect? _rectOf(GlobalKey? key) {
+  Rect? _rectOf(TourAnchorRef? key) {
     final ctx = key?.currentContext;
     final box = ctx?.findRenderObject();
     final me = context.findRenderObject();
