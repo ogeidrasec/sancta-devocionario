@@ -6116,7 +6116,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get supportStory =>
-      'Este aplicativo é gratuito e continuará sendo. Ele nasceu também de um sonho: o nosso casamento. Se ele ajuda você na vida de oração, considere uma doação de qualquer valor para as despesas da cerimônia, ou reze por nós. As duas coisas são um presente enorme.';
+      'Somos Thalita e Diego, e vamos nos casar em breve. Este aplicativo é gratuito e continuará sendo; ele nasceu também desse sonho, o nosso casamento. Se ele ajuda você na vida de oração, considere uma doação de qualquer valor para as despesas da cerimônia, ou reze por nós. As duas coisas são um presente enorme.';
 
   @override
   String get supportSectionPrayer => 'Com oração';
@@ -6129,7 +6129,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get supportPrayerDesc =>
-      'Uma Ave-Maria pelo nosso casamento e pela nossa futura família';
+      'Uma Ave-Maria pelo casamento de Thalita e Diego e pela nossa futura família';
 
   @override
   String get supportPrayerButton => 'Vou rezar por vocês';
@@ -6191,7 +6191,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get nudgeBody =>
-      'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação, ou reze uma Ave-Maria por nós.';
+      'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação, ou reze uma Ave-Maria por nós. Thalita e Diego';
 
   @override
   String get nudgeSupport => 'Apoiar';
@@ -6398,11 +6398,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get onbProjectBody =>
-      'O Sancta é gratuito e sem anúncios. Foi feito por um casal que está se preparando para o matrimônio. Rezar por nós já é um grande presente; quem quiser ajudar encontra como em Sobre o Projeto, no menu.';
+      'O Sancta é gratuito e sem anúncios. Foi feito por Thalita e Diego, um casal que está se preparando para o matrimônio. Rezar por nós já é um grande presente; quem quiser ajudar encontra como em Sobre o Projeto, no menu.';
 
   @override
   String get onbProjectBodyStore =>
-      'O Sancta é gratuito e sem anúncios. Foi feito por um casal que está se preparando para o matrimônio. Se puder, reze por nós!';
+      'O Sancta é gratuito e sem anúncios. Foi feito por Thalita e Diego, um casal que está se preparando para o matrimônio. Se puder, reze por nós!';
 
   @override
   String get onbReadyTitle => 'Tudo pronto!';
@@ -6426,11 +6426,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get afterTourBody =>
-      'O Sancta foi criado para ajudar a pagar as despesas do meu casamento, mas também para que os católicos rezem bem e vivam a fé a cada dia. Ele é gratuito e sem anúncios. Se ele te ajuda e você quiser colaborar, toque no botão abaixo; e uma oração por nós já é um grande presente.';
+      'O Sancta foi criado por Thalita e Diego para ajudar a pagar as despesas do nosso casamento, mas também para que os católicos rezem bem e vivam a fé a cada dia. Ele é gratuito e sem anúncios. Se ele te ajuda e você quiser colaborar, toque no botão abaixo; e uma oração por nós já é um grande presente.';
 
   @override
   String get afterTourBodyStore =>
-      'O Sancta foi criado para que os católicos rezem bem e vivam a fé a cada dia, e também para ajudar nas despesas do meu casamento. Ele é gratuito e sem anúncios. Uma oração por nós já é um grande presente.';
+      'O Sancta foi criado por Thalita e Diego para que os católicos rezem bem e vivam a fé a cada dia, e também para ajudar nas despesas do nosso casamento. Ele é gratuito e sem anúncios. Uma oração por nós já é um grande presente.';
 
   @override
   String get afterTourButton => 'Conhecer o projeto';

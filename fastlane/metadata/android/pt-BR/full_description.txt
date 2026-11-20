@@ -22,6 +22,6 @@ Guia da Missa (forma ordinária e tradicional), roteiro de Adoração Eucarísti
 Um passeio passo a passo mostra onde fica cada coisa.
 
 <b>Gratuito, feito com amor</b>
-O app foi feito por um casal que se prepara para o matrimônio, para ajudar nas despesas do casamento e para que os católicos rezem bem e vivam a fé a cada dia. Quem quiser colaborar encontra PIX, cartão (Ko-fi) e criptomoedas em "Sobre o Projeto", no menu. Uma oração por nós já é um grande presente.
+O app foi feito por Thalita e Diego, um casal que se prepara para o matrimônio, para ajudar nas despesas do casamento e para que os católicos rezem bem e vivam a fé a cada dia. Quem quiser colaborar encontra PIX, cartão (Ko-fi) e criptomoedas em "Sobre o Projeto", no menu. Uma oração por nós já é um grande presente.
 
 Código aberto, licença GPL-3.0.

@@ -10313,7 +10313,7 @@ abstract class AppLocalizations {
   /// No description provided for @supportStory.
   ///
   /// In pt, this message translates to:
-  /// **'Este aplicativo é gratuito e continuará sendo. Ele nasceu também de um sonho: o nosso casamento. Se ele ajuda você na vida de oração, considere uma doação de qualquer valor para as despesas da cerimônia, ou reze por nós. As duas coisas são um presente enorme.'**
+  /// **'Somos Thalita e Diego, e vamos nos casar em breve. Este aplicativo é gratuito e continuará sendo; ele nasceu também desse sonho, o nosso casamento. Se ele ajuda você na vida de oração, considere uma doação de qualquer valor para as despesas da cerimônia, ou reze por nós. As duas coisas são um presente enorme.'**
   String get supportStory;
 
   /// No description provided for @supportSectionPrayer.
@@ -10337,7 +10337,7 @@ abstract class AppLocalizations {
   /// No description provided for @supportPrayerDesc.
   ///
   /// In pt, this message translates to:
-  /// **'Uma Ave-Maria pelo nosso casamento e pela nossa futura família'**
+  /// **'Uma Ave-Maria pelo casamento de Thalita e Diego e pela nossa futura família'**
   String get supportPrayerDesc;
 
   /// No description provided for @supportPrayerButton.
@@ -10451,7 +10451,7 @@ abstract class AppLocalizations {
   /// No description provided for @nudgeBody.
   ///
   /// In pt, this message translates to:
-  /// **'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação, ou reze uma Ave-Maria por nós.'**
+  /// **'Este app é gratuito e nasceu para ajudar nas despesas do nosso casamento. Se ele faz bem à sua vida de oração, considere uma doação, ou reze uma Ave-Maria por nós. Thalita e Diego'**
   String get nudgeBody;
 
   /// No description provided for @nudgeSupport.
@@ -10823,13 +10823,13 @@ abstract class AppLocalizations {
   /// No description provided for @onbProjectBody.
   ///
   /// In pt, this message translates to:
-  /// **'O Sancta é gratuito e sem anúncios. Foi feito por um casal que está se preparando para o matrimônio. Rezar por nós já é um grande presente; quem quiser ajudar encontra como em Sobre o Projeto, no menu.'**
+  /// **'O Sancta é gratuito e sem anúncios. Foi feito por Thalita e Diego, um casal que está se preparando para o matrimônio. Rezar por nós já é um grande presente; quem quiser ajudar encontra como em Sobre o Projeto, no menu.'**
   String get onbProjectBody;
 
   /// No description provided for @onbProjectBodyStore.
   ///
   /// In pt, this message translates to:
-  /// **'O Sancta é gratuito e sem anúncios. Foi feito por um casal que está se preparando para o matrimônio. Se puder, reze por nós!'**
+  /// **'O Sancta é gratuito e sem anúncios. Foi feito por Thalita e Diego, um casal que está se preparando para o matrimônio. Se puder, reze por nós!'**
   String get onbProjectBodyStore;
 
   /// No description provided for @onbReadyTitle.
@@ -10871,13 +10871,13 @@ abstract class AppLocalizations {
   /// No description provided for @afterTourBody.
   ///
   /// In pt, this message translates to:
-  /// **'O Sancta foi criado para ajudar a pagar as despesas do meu casamento, mas também para que os católicos rezem bem e vivam a fé a cada dia. Ele é gratuito e sem anúncios. Se ele te ajuda e você quiser colaborar, toque no botão abaixo; e uma oração por nós já é um grande presente.'**
+  /// **'O Sancta foi criado por Thalita e Diego para ajudar a pagar as despesas do nosso casamento, mas também para que os católicos rezem bem e vivam a fé a cada dia. Ele é gratuito e sem anúncios. Se ele te ajuda e você quiser colaborar, toque no botão abaixo; e uma oração por nós já é um grande presente.'**
   String get afterTourBody;
 
   /// No description provided for @afterTourBodyStore.
   ///
   /// In pt, this message translates to:
-  /// **'O Sancta foi criado para que os católicos rezem bem e vivam a fé a cada dia, e também para ajudar nas despesas do meu casamento. Ele é gratuito e sem anúncios. Uma oração por nós já é um grande presente.'**
+  /// **'O Sancta foi criado por Thalita e Diego para que os católicos rezem bem e vivam a fé a cada dia, e também para ajudar nas despesas do nosso casamento. Ele é gratuito e sem anúncios. Uma oração por nós já é um grande presente.'**
   String get afterTourBodyStore;
 
   /// No description provided for @afterTourButton.

@@ -6108,7 +6108,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get supportStory =>
-      'This app is free and will stay free. It was also born from a dream: our wedding. If it helps your prayer life, please consider a donation of any amount towards the wedding costs, or pray for us. Both are a wonderful gift.';
+      'We are Thalita and Diego, and we are getting married soon. This app is free and will stay free; it was also born from that dream, our wedding. If it helps your prayer life, please consider a donation of any amount towards the wedding costs, or pray for us. Both are a wonderful gift.';
 
   @override
   String get supportSectionPrayer => 'With prayer';
@@ -6121,7 +6121,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get supportPrayerDesc =>
-      'A Hail Mary for our wedding and our future family';
+      'A Hail Mary for Thalita and Diego\'s wedding and our future family';
 
   @override
   String get supportPrayerButton => 'I will pray for you';
@@ -6182,7 +6182,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nudgeBody =>
-      'This app is free and was born to help with our wedding expenses. If it does good for your prayer life, please consider a donation, or pray a Hail Mary for us.';
+      'This app is free and was born to help with our wedding expenses. If it does good for your prayer life, please consider a donation, or pray a Hail Mary for us. Thalita and Diego';
 
   @override
   String get nudgeSupport => 'Support';
@@ -6389,11 +6389,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onbProjectBody =>
-      'Sancta is free and has no ads. It was made by a couple preparing for marriage. Praying for us is already a great gift; if you\'d like to help, see About the Project in the menu.';
+      'Sancta is free and has no ads. It was made by Thalita and Diego, a couple preparing for marriage. Praying for us is already a great gift; if you\'d like to help, see About the Project in the menu.';
 
   @override
   String get onbProjectBodyStore =>
-      'Sancta is free and has no ads. It was made by a couple preparing for marriage. If you can, please pray for us!';
+      'Sancta is free and has no ads. It was made by Thalita and Diego, a couple preparing for marriage. If you can, please pray for us!';
 
   @override
   String get onbReadyTitle => 'All set!';
@@ -6417,11 +6417,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get afterTourBody =>
-      'Sancta was created to help pay for my wedding expenses, but also so that Catholics can pray well and live their faith every day. It is free and has no ads. If it helps you and you\'d like to contribute, tap the button below; and a prayer for us is already a great gift.';
+      'Sancta was created by Thalita and Diego to help pay for our wedding expenses, but also so that Catholics can pray well and live their faith every day. It is free and has no ads. If it helps you and you\'d like to contribute, tap the button below; and a prayer for us is already a great gift.';
 
   @override
   String get afterTourBodyStore =>
-      'Sancta was created so that Catholics can pray well and live their faith every day, and also to help with my wedding expenses. It is free and has no ads. A prayer for us is already a great gift.';
+      'Sancta was created by Thalita and Diego so that Catholics can pray well and live their faith every day, and also to help with our wedding expenses. It is free and has no ads. A prayer for us is already a great gift.';
 
   @override
   String get afterTourButton => 'Learn about the project';

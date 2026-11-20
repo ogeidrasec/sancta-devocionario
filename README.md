@@ -15,7 +15,7 @@ Aplicativo gratuito, sem anúncios e sem conta, para a vida de oração católic
 - O backup é feito por você, quando quiser. A senha do Exame não entra no backup.
 
 ## Apoie o projeto
-O app foi feito por um casal que se prepara para o matrimônio, para ajudar nas despesas do casamento e para que os católicos rezem bem. Quem quiser colaborar pode usar PIX, cartão/PayPal (Ko-fi: <https://ko-fi.com/sanctadevocionario>) ou criptomoedas, em **Sobre o Projeto**, no menu. Uma oração por nós já é um grande presente.
+O app foi feito por Thalita e Diego, um casal que se prepara para o matrimônio, para ajudar nas despesas do casamento e para que os católicos rezem bem. Quem quiser colaborar pode usar PIX, cartão/PayPal (Ko-fi: <https://ko-fi.com/sanctadevocionario>) ou criptomoedas, em **Sobre o Projeto**, no menu. Uma oração por nós já é um grande presente.
 
 ## Compilar
 Requer o [Flutter](https://docs.flutter.dev/get-started/install) (3.38 ou mais novo).
