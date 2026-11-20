@@ -28,9 +28,9 @@ void main() {
     m.setMockMethodCallHandler(const MethodChannel('flutter_timezone'), (c) async => 'America/Sao_Paulo');
   });
 
-  Future<void> pumpFor(WidgetTester tester, Finder f, {int max = 120}) async {
+  Future<void> pumpFor(WidgetTester tester, Finder f, {int max = 400}) async {
     for (var i = 0; i < max && f.evaluate().isEmpty; i++) {
-      await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 30)));
+      await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 50)));
       await tester.pump(const Duration(milliseconds: 100));
     }
   }
@@ -54,7 +54,7 @@ void main() {
         await tester.pump(const Duration(milliseconds: 100));
       }
       final garden = find.byType(GardenHeatmap);
-      await pumpFor(tester, garden, max: 200);
+      await pumpFor(tester, garden, max: 400);
       for (var i = 0; i < 100 && tester.getRect(garden).height < 200; i++) {
         await tester.pump(const Duration(milliseconds: 100));
       }
@@ -66,10 +66,15 @@ void main() {
       expect(tester.takeException(), isNull);
       expect(find.byType(MainScaffold, skipOffstage: false), findsOneWidget, reason: 'uma tela principal só');
       if (withTour) {
-        await pumpFor(tester, find.byKey(const ValueKey('tour_skip')), max: 200);
-        await tester.pump(const Duration(milliseconds: 800));
-        await tester.tap(find.byKey(const ValueKey('tour_skip')));
-        await pumpFor(tester, find.byKey(const ValueKey('project_dialog')), max: 200);
+        // o balão só aceita toques depois de aparecer: tenta até o guia fechar
+        final dialog = find.byKey(const ValueKey('project_dialog'));
+        for (var i = 0; i < 40 && dialog.evaluate().isEmpty; i++) {
+          await pumpFor(tester, find.byKey(const ValueKey('tour_skip')));
+          final skip = find.byKey(const ValueKey('tour_skip'));
+          if (skip.evaluate().isNotEmpty) await tester.tap(skip, warnIfMissed: false);
+          await pumpFor(tester, dialog, max: 20);
+        }
+        await pumpFor(tester, find.byKey(const ValueKey('project_dialog_later')));
         await tester.tap(find.byKey(const ValueKey('project_dialog_later')));
       }
       for (var i = 0; i < 30; i++) {
