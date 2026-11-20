@@ -498,6 +498,53 @@ class DatabaseService {
     });
   }
 
+  /// Grava vários registros de oração de uma vez (restauração de backup),
+  /// sem repetir os que já existem (mesmo horário e título).
+  Future<int> addPrayerLogsBatch(List<Map<String, String>> logs) async {
+    final db = await database;
+    final existing = (await db.query('prayer_logs', columns: ['timestamp', 'title']))
+        .map((m) => '${m['timestamp']}|${m['title']}')
+        .toSet();
+    final batch = db.batch();
+    var added = 0;
+    for (final log in logs) {
+      final k = '${log['timestamp']}|${log['title']}';
+      if (!existing.add(k)) continue;
+      batch.insert('prayer_logs', {
+        'title': log['title'],
+        'timestamp': log['timestamp'],
+        'prayer_id': log['prayerId'],
+        'prayer_type': log['prayerType'],
+      });
+      added++;
+    }
+    await batch.commit(noResult: true);
+    return added;
+  }
+
+  /// Marca de uma vez o estado de várias orações do plano (restauração).
+  Future<void> updateDailyPrayerStatusBatch(Map<String, int> byKey) async {
+    final db = await database;
+    final batch = db.batch();
+    byKey.forEach((key, status) {
+      final i = key.indexOf('_');
+      if (i <= 0) return;
+      batch.insert('daily_prayers_status', {'date': key.substring(0, i), 'prayer_id': key.substring(i + 1), 'status': status},
+          conflictAlgorithm: ConflictAlgorithm.replace);
+    });
+    await batch.commit(noResult: true);
+  }
+
+  /// Substitui as marcações do exame de uma vez (restauração).
+  Future<void> replacePecadosBatch(Map<String, int> pecados) async {
+    final db = await database;
+    final batch = db.batch();
+    batch.delete('pecados');
+    pecados.forEach((id, count) =>
+        batch.insert('pecados', {'id': id, 'count': count}, conflictAlgorithm: ConflictAlgorithm.replace));
+    await batch.commit(noResult: true);
+  }
+
   Future<void> deletePrayerLog(String timestamp, String title) async {
     final db = await database;
     await db.delete('prayer_logs', where: 'timestamp = ? AND title = ?', whereArgs: [timestamp, title]);

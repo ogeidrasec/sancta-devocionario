@@ -6493,4 +6493,8 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get tourExamGuideBody =>
       'Quando terminar, toque em Gerar guia: o app monta um resumo organizado do que você marcou, para levar à confissão. Ao confirmar a confissão, as marcações são apagadas e o Jardim ganha um lírio.';
+
+  @override
+  String get backupRestoring =>
+      'Restaurando seu backup… Isso pode levar alguns segundos.';
 }

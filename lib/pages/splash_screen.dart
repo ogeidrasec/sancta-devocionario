@@ -87,13 +87,13 @@ class _SplashScreenState extends State<SplashScreen> {
       await Future.delayed(const Duration(milliseconds: 200));
       
       if (mounted) {
+        // Decide agora (e não dentro do pageBuilder, que pode ser chamado de
+        // novo): senão, ao concluir as boas-vindas, esta rota também virava
+        // uma segunda tela principal por baixo da nova.
+        final next = settingsProvider.onboardingDone ? const MainScaffold() : const OnboardingPage();
         Navigator.of(context).pushReplacement(
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-               return settingsProvider.onboardingDone
-                  ? const MainScaffold()
-                  : const OnboardingPage();
-            },
+            pageBuilder: (context, animation, secondaryAnimation) => next,
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               const begin = 0.0;
               const end = 1.0;

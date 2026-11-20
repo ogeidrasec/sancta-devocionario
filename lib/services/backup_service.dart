@@ -232,14 +232,15 @@ class BackupService {
     }
   }
 
-  Future<void> importData(BuildContext context) async {
+  /// Escolhe o arquivo e restaura. Devolve true se restaurou.
+  Future<bool> importData(BuildContext context) async {
     final l10n = AppLocalizations.of(context)!;
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['json'],
       );
-      if (result == null) return;
+      if (result == null) return false;
 
       final file = File(result.files.single.path!);
       var json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
@@ -248,9 +249,9 @@ class BackupService {
         Map<String, dynamic>? decrypted;
         var wrong = false;
         while (decrypted == null) {
-          if (!context.mounted) return;
+          if (!context.mounted) return false;
           final password = await _askImportPassword(context, wrong: wrong);
-          if (password == null) return; // cancelado
+          if (password == null) return false; // cancelado
           try {
             decrypted = jsonDecode(await BackupCrypto.decrypt(json, password))
                 as Map<String, dynamic>;
@@ -261,13 +262,38 @@ class BackupService {
         json = decrypted;
       }
 
-      await _restoreData(json);
-
+      // Restaurar pode levar alguns segundos: avisa e não deixa sair no meio.
+      final navigator = Navigator.of(context, rootNavigator: true);
+      final messenger = ScaffoldMessenger.of(context);
+      var progressOpen = false;
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.backupImportSuccess)),
+        progressOpen = true;
+        showDialog<void>(
+          context: context,
+          barrierDismissible: false,
+          useRootNavigator: true,
+          builder: (_) => PopScope(
+            canPop: false,
+            child: AlertDialog(
+              key: const ValueKey('backup_restoring'),
+              content: Row(
+                children: [
+                  const SizedBox(width: 28, height: 28, child: CircularProgressIndicator(strokeWidth: 3)),
+                  const SizedBox(width: 20),
+                  Expanded(child: Text(l10n.backupRestoring)),
+                ],
+              ),
+            ),
+          ),
         );
       }
+      try {
+        await _restoreData(json);
+      } finally {
+        if (progressOpen) navigator.pop();
+      }
+      messenger.showSnackBar(SnackBar(content: Text(l10n.backupImportSuccess)));
+      return true;
     } catch (e) {
       debugPrint('Error importing data: $e');
       if (context.mounted) {
@@ -275,6 +301,7 @@ class BackupService {
           SnackBar(content: Text(l10n.backupImportError)),
         );
       }
+      return false;
     }
   }
 
@@ -288,11 +315,7 @@ class BackupService {
     
     // 1. Pecados
     if (data['pecados'] != null) {
-      await db.clearPecados();
-      final pecados = Map<String, int>.from(data['pecados']);
-      for (var entry in pecados.entries) {
-        await db.updatePecado(entry.key, entry.value);
-      }
+      await db.replacePecadosBatch(Map<String, int>.from(data['pecados']));
     }
 
     // 2. Confession History (ignora datas que já existem)
@@ -329,14 +352,7 @@ class BackupService {
     // 4. Daily Prayers
     if (data['dailyPrayers'] != null) {
       final daily = data['dailyPrayers'] as Map<String, dynamic>;
-      for (var entry in daily.entries) {
-        final parts = entry.key.split('_');
-        if (parts.length >= 2) {
-          final date = parts[0];
-          final id = parts.sublist(1).join('_');
-          await db.updateDailyPrayerStatus(date, id, entry.value);
-        }
-      }
+      await db.updateDailyPrayerStatusBatch(daily.map((k, v) => MapEntry(k, v as int)));
     }
 
     // 5. Weekly Commitments
@@ -363,9 +379,8 @@ class BackupService {
     // 7. Prayer Logs
     if (data['prayerLogs'] != null) {
       final logs = (data['prayerLogs'] as List).cast<Map<String, dynamic>>();
-      for (var l in logs) {
-        await db.addPrayerLog(Map<String, String>.from(l));
-      }
+      // em lote e sem duplicar (restaurar duas vezes não repete orações)
+      await db.addPrayerLogsBatch([for (final l in logs) Map<String, String>.from(l)]);
     }
 
     // 8. Scheduled Prayers

@@ -6484,4 +6484,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tourExamGuideBody =>
       'When you finish, tap Generate guide: the app builds an organized summary of what you marked, to take to confession. When you confirm the confession, the marks are cleared and your Garden gets a lily.';
+
+  @override
+  String get backupRestoring =>
+      'Restoring your backup… This may take a few seconds.';
 }

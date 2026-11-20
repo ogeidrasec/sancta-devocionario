@@ -2323,5 +2323,6 @@
   "tourExamSectionsTitle": "Examine by category",
   "tourExamSectionsBody": "Go through the categories, such as the Commandments and the capital sins, and tap + on each item you remember (tap again if it happened more than once). Use search to find a sin by name.",
   "tourExamGuideTitle": "Generate the guide",
-  "tourExamGuideBody": "When you finish, tap Generate guide: the app builds an organized summary of what you marked, to take to confession. When you confirm the confession, the marks are cleared and your Garden gets a lily."
+  "tourExamGuideBody": "When you finish, tap Generate guide: the app builds an organized summary of what you marked, to take to confession. When you confirm the confession, the marks are cleared and your Garden gets a lily.",
+  "backupRestoring": "Restoring your backup… This may take a few seconds."
 }

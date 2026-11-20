@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'package:sanctaconscientia/main.dart';
+import 'package:sanctaconscientia/pages/main_scaffold.dart';
 import 'package:sanctaconscientia/pages/plano_vida/widgets/garden_heatmap.dart';
 import 'package:sanctaconscientia/services/database_service.dart';
 
@@ -63,6 +64,7 @@ void main() {
       // o idioma da 1ª execução vem do sistema (aqui, inglês)
       expect(find.byWidgetPredicate((w) => w is Text && (w.data == 'Jardim da Alma' || w.data == 'Garden of the Soul')), findsOneWidget);
       expect(tester.takeException(), isNull);
+      expect(find.byType(MainScaffold, skipOffstage: false), findsOneWidget, reason: 'uma tela principal só');
       if (withTour) {
         await pumpFor(tester, find.byKey(const ValueKey('tour_skip')), max: 200);
         await tester.pump(const Duration(milliseconds: 800));

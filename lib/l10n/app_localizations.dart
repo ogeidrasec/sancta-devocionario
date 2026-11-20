@@ -10987,6 +10987,12 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Quando terminar, toque em Gerar guia: o app monta um resumo organizado do que você marcou, para levar à confissão. Ao confirmar a confissão, as marcações são apagadas e o Jardim ganha um lírio.'**
   String get tourExamGuideBody;
+
+  /// No description provided for @backupRestoring.
+  ///
+  /// In pt, this message translates to:
+  /// **'Restaurando seu backup… Isso pode levar alguns segundos.'**
+  String get backupRestoring;
 }
 
 class _AppLocalizationsDelegate

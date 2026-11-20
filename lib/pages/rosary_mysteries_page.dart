@@ -236,7 +236,6 @@ class _TodayCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const _TodayCard({
-    super.key,
     required this.type,
     required this.title,
     required this.days,

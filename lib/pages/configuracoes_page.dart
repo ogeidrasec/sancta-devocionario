@@ -499,16 +499,16 @@ class ConfiguracoesPage extends StatelessWidget {
                       );
 
                       if (confirm == true && context.mounted) {
-                        final backupService = BackupService();
-                        await backupService.importData(context);
-                        
-                        // Reload all providers to reflect imported data
-                        if (context.mounted) {
-                          final prayerProvider = Provider.of<PrayerProvider>(context, listen: false);
-                          final confessionProvider = Provider.of<ConfessionProvider>(context, listen: false);
-                          final settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
-                          final appState = Provider.of<AppState>(context, listen: false);
-                          
+                        // Pega os providers antes: a recarga acontece mesmo se a
+                        // pessoa sair desta tela durante a restauração.
+                        final prayerProvider = Provider.of<PrayerProvider>(context, listen: false);
+                        final confessionProvider = Provider.of<ConfessionProvider>(context, listen: false);
+                        final settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
+                        final appState = Provider.of<AppState>(context, listen: false);
+                        final restored = await BackupService().importData(context);
+
+                        // Recarrega tudo para mostrar os dados restaurados
+                        if (restored) {
                           await Future.wait([
                             prayerProvider.loadData(),
                             confessionProvider.loadData(),
