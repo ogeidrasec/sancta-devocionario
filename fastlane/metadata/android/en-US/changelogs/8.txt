@@ -1,0 +1,1 @@
+Smoother guide: the highlight closes before the screen changes and opens on the new spot.

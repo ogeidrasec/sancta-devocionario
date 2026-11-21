@@ -1,0 +1,1 @@
+Guia mais suave: o destaque se fecha antes de a tela mudar e se abre no ponto novo.
