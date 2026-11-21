@@ -182,6 +182,11 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
   static const _tabSettle = Duration(milliseconds: 550);
   static const _sameTabSettle = Duration(milliseconds: 120);
   static const _moveDuration = Duration(milliseconds: 520);
+  // Quando a tela vai mudar (outra aba, sub-aba ou rolagem), o foco se fecha
+  // antes e se abre de novo no ponto novo: não fica iluminando o lugar antigo
+  // enquanto a página troca por baixo.
+  static const _closeDuration = Duration(milliseconds: 260);
+  static const _openDuration = Duration(milliseconds: 420);
   static const _tapGuard = Duration(milliseconds: 700);
 
   int _index = 0;
@@ -278,6 +283,12 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
       if (!mounted) return;
     }
     final changesTab = step.tab != null && step.tab != _currentTab;
+    final jumps = changesTab || _pageWillMove(step);
+    if (jumps) {
+      // fecha o foco no lugar antigo antes de a página mudar
+      await _closeHole();
+      if (!mounted) return;
+    }
     setState(() => _index = i);
     if (changesTab) {
       _currentTab = step.tab;
@@ -291,7 +302,7 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
       await _scrollToTop(AppTourScroll.forTab(step.tab));
       if (!mounted) return;
     }
-    await _scrollTargetIntoView(step.target);
+    await _scrollTargetIntoView(step.target, beforeMove: _closeHole);
     if (!mounted) return;
     final rect = await _measure(attempts: 10);
     if (!mounted) return;
@@ -302,6 +313,8 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
       _from = current;
       _to = rect?.inflate(8);
     });
+    // foco fechado: abre a partir do centro do ponto novo; aberto: desliza
+    _move.duration = current == null ? _openDuration : _moveDuration;
     await _move.forward(from: 0).orCancel.catchError((_) {});
     if (!mounted) return;
     setState(() {
@@ -309,6 +322,40 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
       _shownAt = DateTime.now();
     });
     _busy = false;
+  }
+
+  /// Fecha o foco no ponto atual (a tela fica toda escurecida).
+  Future<void> _closeHole() async {
+    final current = _hole;
+    if (current == null) return;
+    setState(() {
+      _from = current;
+      _to = null;
+    });
+    _move.duration = _closeDuration;
+    await _move.forward(from: 0).orCancel.catchError((_) {});
+    if (mounted) setState(() => _from = null);
+  }
+
+  /// O passo [step] vai mexer na página (sub-aba, rolagem ou ponto fora da
+  /// tela)? Então o foco precisa se fechar antes.
+  bool _pageWillMove(TourStep step) {
+    if (step.target == null) return false;
+    if (step.tab == 0) {
+      final ctx = AppTourKeys.tabToday.currentContext;
+      final tc = ctx == null ? null : DefaultTabController.maybeOf(ctx);
+      if (tc != null && tc.index != 0) return true;
+    }
+    final ctx = step.target!.currentContext;
+    if (ctx == null || !ctx.mounted) return true;
+    final rect = _rectOf(step.target);
+    final me = context.findRenderObject();
+    if (rect == null || me is! RenderBox) return true;
+    final box = ctx.findRenderObject();
+    if (box is RenderBox && box.hasSize && (rect.height < box.size.height - 1 || rect.width < box.size.width - 1)) {
+      return true; // cortado: vai rolar
+    }
+    return false;
   }
 
   /// Volta a lista da aba ao topo (só as que estiverem na tela).
@@ -338,7 +385,7 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
 
   /// Se o ponto está numa lista que rola na vertical, rola só essa lista até
   /// ele ficar visível (sem mexer em abas ou páginas que rolam na horizontal).
-  Future<void> _scrollTargetIntoView(TourAnchorRef? key) async {
+  Future<void> _scrollTargetIntoView(TourAnchorRef? key, {Future<void> Function()? beforeMove}) async {
     final ctx = key?.currentContext;
     if (ctx == null || !ctx.mounted) return;
     try {
@@ -353,6 +400,8 @@ class _AppTourOverlayState extends State<AppTourOverlay> with TickerProviderStat
           .offset
           .clamp(position.minScrollExtent, position.maxScrollExtent);
       if ((target - position.pixels).abs() < 2) return;
+      if (beforeMove != null) await beforeMove();
+      if (!mounted) return;
       await position.animateTo(target, duration: const Duration(milliseconds: 350), curve: Curves.easeInOut);
     } catch (_) {}
   }
