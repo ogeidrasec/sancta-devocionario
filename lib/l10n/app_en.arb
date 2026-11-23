@@ -2277,7 +2277,7 @@
   "tourRemindersTitle": "Reminders",
   "tourRemindersBody": "All of the app's reminders in one place: prayers, novenas, confession and the Church's days of obligation. You can pause, edit or create your own.",
   "tourMenuTitle": "Menu",
-  "tourMenuBody": "Here you will find About the Project, this App guide (to watch again anytime) and Settings, such as language, text size and backup.",
+  "tourMenuBody": "Here you will find My Growth (your streaks and goals), About the Project, this App guide (to watch again anytime) and Settings, such as language, text size and backup.",
   "tourPrayersTitle": "Prayers",
   "tourPrayersBody": "All the prayers in the app, organized by category. At the top you will find the prayer for this time of day and the saint of the day.",
   "tourSearchTitle": "Search for a prayer",
@@ -2403,5 +2403,7 @@
   "milestoneConfession1Title": "First Confession recorded",
   "milestoneConfession1Desc": "Seek the sacrament of Reconciliation and renew sanctifying grace.",
   "milestoneConfession4Title": "4 Confessions recorded",
-  "milestoneConfession4Desc": "Care for your soul regularly in the sacrament of Penance."
+  "milestoneConfession4Desc": "Care for your soul regularly in the sacrament of Penance.",
+  "tourGrowthTitle": "Your growth",
+  "tourGrowthBody": "Here you see how many days in a row you have prayed and what your next goal is. Tap the card to open the full screen, with your prayer, Rosary and Mass streaks and the goals you have reached. When you reach one, the app celebrates."
 }

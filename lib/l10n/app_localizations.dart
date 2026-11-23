@@ -10709,7 +10709,7 @@ abstract class AppLocalizations {
   /// No description provided for @tourMenuBody.
   ///
   /// In pt, this message translates to:
-  /// **'Aqui ficam Sobre o Projeto, este Guia do app (para rever quando quiser) e as Configurações, como idioma, tamanho do texto e backup.'**
+  /// **'Aqui ficam Minha Evolução (suas sequências e metas), Sobre o Projeto, este Guia do app (para rever quando quiser) e as Configurações, como idioma, tamanho do texto e backup.'**
   String get tourMenuBody;
 
   /// No description provided for @tourPrayersTitle.
@@ -11467,6 +11467,18 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Cuidar da alma com regularidade no sacramento da Penitência.'**
   String get milestoneConfession4Desc;
+
+  /// No description provided for @tourGrowthTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sua evolução'**
+  String get tourGrowthTitle;
+
+  /// No description provided for @tourGrowthBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aqui você vê há quantos dias seguidos reza e qual é a sua próxima meta. Toque no cartão para abrir a tela completa, com as sequências de oração, do terço e da Missa, e as metas já alcançadas. Quando você alcança uma, o app comemora.'**
+  String get tourGrowthBody;
 }
 
 class _AppLocalizationsDelegate

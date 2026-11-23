@@ -2377,7 +2377,7 @@
   "tourRemindersTitle": "Lembretes",
   "tourRemindersBody": "Todos os avisos do app em um só lugar: orações, novenas, confissão e os dias de preceito da Igreja. Você pode pausar, editar ou criar um lembrete seu.",
   "tourMenuTitle": "Menu",
-  "tourMenuBody": "Aqui ficam Sobre o Projeto, este Guia do app (para rever quando quiser) e as Configurações, como idioma, tamanho do texto e backup.",
+  "tourMenuBody": "Aqui ficam Minha Evolução (suas sequências e metas), Sobre o Projeto, este Guia do app (para rever quando quiser) e as Configurações, como idioma, tamanho do texto e backup.",
   "tourPrayersTitle": "Orações",
   "tourPrayersBody": "Todas as orações do app, organizadas por categoria. No topo aparece a oração indicada para este momento do dia e o santo do dia.",
   "tourSearchTitle": "Buscar uma oração",
@@ -2592,5 +2592,7 @@
   "milestoneConfession1Title": "Primeira Confissão registrada",
   "milestoneConfession1Desc": "Buscar o sacramento da Reconciliação e renovar a graça.",
   "milestoneConfession4Title": "4 Confissões registradas",
-  "milestoneConfession4Desc": "Cuidar da alma com regularidade no sacramento da Penitência."
+  "milestoneConfession4Desc": "Cuidar da alma com regularidade no sacramento da Penitência.",
+  "tourGrowthTitle": "Sua evolução",
+  "tourGrowthBody": "Aqui você vê há quantos dias seguidos reza e qual é a sua próxima meta. Toque no cartão para abrir a tela completa, com as sequências de oração, do terço e da Missa, e as metas já alcançadas. Quando você alcança uma, o app comemora."
 }

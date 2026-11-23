@@ -6323,7 +6323,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tourMenuBody =>
-      'Here you will find About the Project, this App guide (to watch again anytime) and Settings, such as language, text size and backup.';
+      'Here you will find My Growth (your streaks and goals), About the Project, this App guide (to watch again anytime) and Settings, such as language, text size and backup.';
 
   @override
   String get tourPrayersTitle => 'Prayers';
@@ -6774,4 +6774,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get milestoneConfession4Desc =>
       'Care for your soul regularly in the sacrament of Penance.';
+
+  @override
+  String get tourGrowthTitle => 'Your growth';
+
+  @override
+  String get tourGrowthBody =>
+      'Here you see how many days in a row you have prayed and what your next goal is. Tap the card to open the full screen, with your prayer, Rosary and Mass streaks and the goals you have reached. When you reach one, the app celebrates.';
 }

@@ -147,7 +147,7 @@ class HojeTab extends StatelessWidget {
           ],
           const SizedBox(height: 12),
           // Resumo de evolução, sequências e próxima meta
-          const SpiritualGrowthCard(),
+          TourAnchor(ref: AppTourKeys.growth, child: const SpiritualGrowthCard()),
           const SizedBox(height: 20),
 
           // O dia: calendário litúrgico e santo do dia

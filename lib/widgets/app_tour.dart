@@ -110,6 +110,7 @@ class AppTourKeys {
   static final navExam = TourAnchorRef('tour_nav_exam');
   static final menu = TourAnchorRef('tour_menu');
   static final garden = TourAnchorRef('tour_garden');
+  static final growth = TourAnchorRef('tour_growth');
   static final tabToday = TourAnchorRef('tour_tab_today');
   static final tabCalendar = TourAnchorRef('tour_tab_calendar');
   static final tabReminders = TourAnchorRef('tour_tab_reminders');
@@ -141,6 +142,7 @@ List<TourStep> buildAppTourSteps(AppLocalizations l10n) => [
       TourStep(icon: Icons.waving_hand, title: l10n.tourWelcomeTitle, body: l10n.tourWelcomeBody, tab: 0),
       TourStep(target: AppTourKeys.navGarden, tab: 0, icon: Icons.park, title: l10n.tourNavGardenTitle, body: l10n.tourNavGardenBody),
       TourStep(target: AppTourKeys.garden, tab: 0, icon: Icons.grass, title: l10n.tourGardenTitle, body: l10n.tourGardenBody),
+      TourStep(target: AppTourKeys.growth, tab: 0, icon: Icons.emoji_events_outlined, title: l10n.tourGrowthTitle, body: l10n.tourGrowthBody),
       TourStep(target: AppTourKeys.tabToday, tab: 0, icon: Icons.wb_sunny_outlined, title: l10n.tourTodayTitle, body: l10n.tourTodayBody),
       TourStep(target: AppTourKeys.addButton, tab: 0, icon: Icons.add_circle, title: l10n.tourAddTitle, body: l10n.tourAddBody),
       TourStep(target: AppTourKeys.tabCalendar, tab: 0, icon: Icons.calendar_month, title: l10n.tourCalendarTitle, body: l10n.tourCalendarBody),

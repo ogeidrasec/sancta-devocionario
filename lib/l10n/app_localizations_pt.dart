@@ -6332,7 +6332,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tourMenuBody =>
-      'Aqui ficam Sobre o Projeto, este Guia do app (para rever quando quiser) e as Configurações, como idioma, tamanho do texto e backup.';
+      'Aqui ficam Minha Evolução (suas sequências e metas), Sobre o Projeto, este Guia do app (para rever quando quiser) e as Configurações, como idioma, tamanho do texto e backup.';
 
   @override
   String get tourPrayersTitle => 'Orações';
@@ -6782,4 +6782,11 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get milestoneConfession4Desc =>
       'Cuidar da alma com regularidade no sacramento da Penitência.';
+
+  @override
+  String get tourGrowthTitle => 'Sua evolução';
+
+  @override
+  String get tourGrowthBody =>
+      'Aqui você vê há quantos dias seguidos reza e qual é a sua próxima meta. Toque no cartão para abrir a tela completa, com as sequências de oração, do terço e da Missa, e as metas já alcançadas. Quando você alcança uma, o app comemora.';
 }
