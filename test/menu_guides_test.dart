@@ -42,6 +42,7 @@ void main() {
     expect(find.text('Adoração Eucarística'), findsNothing);
     expect(find.text('Intenções de oração'), findsNothing);
     expect(find.text('Guia do app'), findsOneWidget);
-    expect(find.byType(ListTile), findsNWidgets(3));
+    expect(find.text('Minha Evolução'), findsOneWidget);
+    expect(find.byType(ListTile), findsNWidgets(4));
   });
 }

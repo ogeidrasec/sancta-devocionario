@@ -11017,6 +11017,456 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Restaurando seu backup… Isso pode levar alguns segundos.'**
   String get backupRestoring;
+
+  /// No description provided for @drawerGrowth.
+  ///
+  /// In pt, this message translates to:
+  /// **'Minha Evolução'**
+  String get drawerGrowth;
+
+  /// No description provided for @drawerGrowthDesc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sequências, perseverança e metas de oração'**
+  String get drawerGrowthDesc;
+
+  /// No description provided for @growthCardTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sua evolução'**
+  String get growthCardTitle;
+
+  /// No description provided for @growthCardCounter.
+  ///
+  /// In pt, this message translates to:
+  /// **'{achieved} de {total} metas'**
+  String growthCardCounter(int achieved, int total);
+
+  /// No description provided for @growthNextGoalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próxima meta: {title}'**
+  String growthNextGoalLabel(String title);
+
+  /// No description provided for @growthAllDoneLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todas as metas atuais foram alcançadas! Continue perseverando.'**
+  String get growthAllDoneLabel;
+
+  /// No description provided for @growthChipPrayer.
+  ///
+  /// In pt, this message translates to:
+  /// **'Oração: {days}d'**
+  String growthChipPrayer(int days);
+
+  /// No description provided for @growthChipRosary.
+  ///
+  /// In pt, this message translates to:
+  /// **'Terço: {days}d'**
+  String growthChipRosary(int days);
+
+  /// No description provided for @growthChipMass.
+  ///
+  /// In pt, this message translates to:
+  /// **'Missa: {weeks} dom.'**
+  String growthChipMass(int weeks);
+
+  /// No description provided for @growthPageTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Evolução e Perseverança'**
+  String get growthPageTitle;
+
+  /// No description provided for @growthPageSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Acompanhe sua constância na oração e as metas alcançadas.'**
+  String get growthPageSubtitle;
+
+  /// No description provided for @growthSummaryTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Caminho de perseverança'**
+  String get growthSummaryTitle;
+
+  /// No description provided for @growthSummaryProgress.
+  ///
+  /// In pt, this message translates to:
+  /// **'{achieved} de {total} metas alcançadas'**
+  String growthSummaryProgress(int achieved, int total);
+
+  /// No description provided for @growthSummaryQuote.
+  ///
+  /// In pt, this message translates to:
+  /// **'\"Quem perseverar até o fim, esse será salvo.\" (Mt 24, 13)'**
+  String get growthSummaryQuote;
+
+  /// No description provided for @growthSectionStreaks.
+  ///
+  /// In pt, this message translates to:
+  /// **'SEQUÊNCIAS ATUAIS'**
+  String get growthSectionStreaks;
+
+  /// No description provided for @growthStreakPrayerLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dias seguidos rezando'**
+  String get growthStreakPrayerLabel;
+
+  /// No description provided for @growthStreakRosaryLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dias seguidos de Terço'**
+  String get growthStreakRosaryLabel;
+
+  /// No description provided for @growthStreakMassLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Domingos seguidos na Missa'**
+  String get growthStreakMassLabel;
+
+  /// No description provided for @growthStreakBest.
+  ///
+  /// In pt, this message translates to:
+  /// **'Recorde: {count}'**
+  String growthStreakBest(int count);
+
+  /// No description provided for @growthTotalRosariesLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Total: {count} terços'**
+  String growthTotalRosariesLabel(int count);
+
+  /// No description provided for @growthPreceptMonthsLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Meses fiéis ao preceito: {count}'**
+  String growthPreceptMonthsLabel(int count);
+
+  /// No description provided for @growthStreakDevotionLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Novenas e Confissões'**
+  String get growthStreakDevotionLabel;
+
+  /// No description provided for @growthDevotionBreakdown.
+  ///
+  /// In pt, this message translates to:
+  /// **'{novenas} novenas · {confessions} confissões'**
+  String growthDevotionBreakdown(int novenas, int confessions);
+
+  /// No description provided for @growthSectionNext.
+  ///
+  /// In pt, this message translates to:
+  /// **'PRÓXIMA META'**
+  String get growthSectionNext;
+
+  /// No description provided for @growthCatPrayer.
+  ///
+  /// In pt, this message translates to:
+  /// **'CONSTÂNCIA NA ORAÇÃO'**
+  String get growthCatPrayer;
+
+  /// No description provided for @growthCatRosary.
+  ///
+  /// In pt, this message translates to:
+  /// **'SANTO TERÇO'**
+  String get growthCatRosary;
+
+  /// No description provided for @growthCatMass.
+  ///
+  /// In pt, this message translates to:
+  /// **'SANTA MISSA'**
+  String get growthCatMass;
+
+  /// No description provided for @growthCatDevotion.
+  ///
+  /// In pt, this message translates to:
+  /// **'NOVENAS E SACRAMENTOS'**
+  String get growthCatDevotion;
+
+  /// No description provided for @growthAchievedBadge.
+  ///
+  /// In pt, this message translates to:
+  /// **'Alcançada'**
+  String get growthAchievedBadge;
+
+  /// No description provided for @growthProgressRatio.
+  ///
+  /// In pt, this message translates to:
+  /// **'{current} / {target}'**
+  String growthProgressRatio(int current, int target);
+
+  /// No description provided for @growthPopupTitleSingle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova meta alcançada!'**
+  String get growthPopupTitleSingle;
+
+  /// No description provided for @growthPopupTitleMulti.
+  ///
+  /// In pt, this message translates to:
+  /// **'Novas metas alcançadas!'**
+  String get growthPopupTitleMulti;
+
+  /// No description provided for @growthPopupEncouragement.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deo gratias! Cada passo fiel aproxima sua alma de Deus. Continue firme na oração diária.'**
+  String get growthPopupEncouragement;
+
+  /// No description provided for @growthPopupViewAll.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver evolução'**
+  String get growthPopupViewAll;
+
+  /// No description provided for @growthPopupContinue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar'**
+  String get growthPopupContinue;
+
+  /// No description provided for @milestonePrayerStreak3Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'3 dias seguidos rezando'**
+  String get milestonePrayerStreak3Title;
+
+  /// No description provided for @milestonePrayerStreak3Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Primeiros passos na constância diária com Deus.'**
+  String get milestonePrayerStreak3Desc;
+
+  /// No description provided for @milestonePrayerStreak7Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'7 dias seguidos rezando'**
+  String get milestonePrayerStreak7Title;
+
+  /// No description provided for @milestonePrayerStreak7Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Uma semana inteira dedicada à vida de oração.'**
+  String get milestonePrayerStreak7Desc;
+
+  /// No description provided for @milestonePrayerStreak21Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'21 dias seguidos rezando'**
+  String get milestonePrayerStreak21Title;
+
+  /// No description provided for @milestonePrayerStreak21Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'O hábito da oração começa a criar raízes firmes.'**
+  String get milestonePrayerStreak21Desc;
+
+  /// No description provided for @milestonePrayerStreak40Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'40 dias seguidos rezando'**
+  String get milestonePrayerStreak40Title;
+
+  /// No description provided for @milestonePrayerStreak40Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Uma Quaresma inteira de fidelidade na oração.'**
+  String get milestonePrayerStreak40Desc;
+
+  /// No description provided for @milestonePrayerStreak90Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'90 dias seguidos rezando'**
+  String get milestonePrayerStreak90Title;
+
+  /// No description provided for @milestonePrayerStreak90Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Três meses de perseverança constante diante do Senhor.'**
+  String get milestonePrayerStreak90Desc;
+
+  /// No description provided for @milestonePrayerStreak365Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'365 dias seguidos rezando'**
+  String get milestonePrayerStreak365Title;
+
+  /// No description provided for @milestonePrayerStreak365Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Um ano inteiro de oração fiel sem interromper a caminhada.'**
+  String get milestonePrayerStreak365Desc;
+
+  /// No description provided for @milestoneRosaryTotal1Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'Primeiro Santo Terço'**
+  String get milestoneRosaryTotal1Title;
+
+  /// No description provided for @milestoneRosaryTotal1Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Concluir e registrar o seu primeiro Terço no aplicativo.'**
+  String get milestoneRosaryTotal1Desc;
+
+  /// No description provided for @milestoneRosaryStreak7Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'7 dias seguidos de Terço'**
+  String get milestoneRosaryStreak7Title;
+
+  /// No description provided for @milestoneRosaryStreak7Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Uma semana inteira meditando os mistérios com Nossa Senhora.'**
+  String get milestoneRosaryStreak7Desc;
+
+  /// No description provided for @milestoneRosaryStreak30Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'30 dias seguidos de Terço'**
+  String get milestoneRosaryStreak30Title;
+
+  /// No description provided for @milestoneRosaryStreak30Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Um mês mariano rezando o Santo Terço todos os dias.'**
+  String get milestoneRosaryStreak30Desc;
+
+  /// No description provided for @milestoneRosaryStreak54Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'54 dias seguidos de Terço'**
+  String get milestoneRosaryStreak54Title;
+
+  /// No description provided for @milestoneRosaryStreak54Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perseverança equivalente à tradicional Novena da Pompeia.'**
+  String get milestoneRosaryStreak54Desc;
+
+  /// No description provided for @milestoneRosaryTotal100Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'100 Terços rezados'**
+  String get milestoneRosaryTotal100Title;
+
+  /// No description provided for @milestoneRosaryTotal100Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cem terços acumulados em honra à Virgem Santíssima.'**
+  String get milestoneRosaryTotal100Desc;
+
+  /// No description provided for @milestoneMassTotal1Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'Primeira Missa registrada'**
+  String get milestoneMassTotal1Title;
+
+  /// No description provided for @milestoneMassTotal1Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'A primeira flor dourada plantada no seu Jardim da Alma.'**
+  String get milestoneMassTotal1Desc;
+
+  /// No description provided for @milestoneMassSunday4Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'4 domingos seguidos na Missa'**
+  String get milestoneMassSunday4Title;
+
+  /// No description provided for @milestoneMassSunday4Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Um mês inteiro sem faltar ao Dia do Senhor.'**
+  String get milestoneMassSunday4Desc;
+
+  /// No description provided for @milestoneMassPerfectMonth1Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mês fiel aos dias de preceito'**
+  String get milestoneMassPerfectMonth1Title;
+
+  /// No description provided for @milestoneMassPerfectMonth1Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Participar da Missa em todos os domingos e festas de guarda de um mês.'**
+  String get milestoneMassPerfectMonth1Desc;
+
+  /// No description provided for @milestoneMassSunday12Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'12 domingos seguidos na Missa'**
+  String get milestoneMassSunday12Title;
+
+  /// No description provided for @milestoneMassSunday12Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Um trimestre inteiro de fidelidade à Santa Missa dominical.'**
+  String get milestoneMassSunday12Desc;
+
+  /// No description provided for @milestoneMassSunday52Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'52 domingos seguidos na Missa'**
+  String get milestoneMassSunday52Title;
+
+  /// No description provided for @milestoneMassSunday52Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Um ano inteiro sem faltar à Santa Missa aos domingos.'**
+  String get milestoneMassSunday52Desc;
+
+  /// No description provided for @milestoneNovena1Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'Primeira Novena concluída'**
+  String get milestoneNovena1Title;
+
+  /// No description provided for @milestoneNovena1Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perseverar pelos nove dias completos de uma novena.'**
+  String get milestoneNovena1Desc;
+
+  /// No description provided for @milestoneNovena3Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'3 Novenas concluídas'**
+  String get milestoneNovena3Title;
+
+  /// No description provided for @milestoneNovena3Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Três novenas completas oferecidas com fé e constância.'**
+  String get milestoneNovena3Desc;
+
+  /// No description provided for @milestoneConfession1Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'Primeira Confissão registrada'**
+  String get milestoneConfession1Title;
+
+  /// No description provided for @milestoneConfession1Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Buscar o sacramento da Reconciliação e renovar a graça.'**
+  String get milestoneConfession1Desc;
+
+  /// No description provided for @milestoneConfession4Title.
+  ///
+  /// In pt, this message translates to:
+  /// **'4 Confissões registradas'**
+  String get milestoneConfession4Title;
+
+  /// No description provided for @milestoneConfession4Desc.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cuidar da alma com regularidade no sacramento da Penitência.'**
+  String get milestoneConfession4Desc;
 }
 
 class _AppLocalizationsDelegate

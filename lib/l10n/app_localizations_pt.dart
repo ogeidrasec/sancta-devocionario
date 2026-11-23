@@ -6511,4 +6511,275 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get backupRestoring =>
       'Restaurando seu backup… Isso pode levar alguns segundos.';
+
+  @override
+  String get drawerGrowth => 'Minha Evolução';
+
+  @override
+  String get drawerGrowthDesc => 'Sequências, perseverança e metas de oração';
+
+  @override
+  String get growthCardTitle => 'Sua evolução';
+
+  @override
+  String growthCardCounter(int achieved, int total) {
+    return '$achieved de $total metas';
+  }
+
+  @override
+  String growthNextGoalLabel(String title) {
+    return 'Próxima meta: $title';
+  }
+
+  @override
+  String get growthAllDoneLabel =>
+      'Todas as metas atuais foram alcançadas! Continue perseverando.';
+
+  @override
+  String growthChipPrayer(int days) {
+    return 'Oração: ${days}d';
+  }
+
+  @override
+  String growthChipRosary(int days) {
+    return 'Terço: ${days}d';
+  }
+
+  @override
+  String growthChipMass(int weeks) {
+    return 'Missa: $weeks dom.';
+  }
+
+  @override
+  String get growthPageTitle => 'Evolução e Perseverança';
+
+  @override
+  String get growthPageSubtitle =>
+      'Acompanhe sua constância na oração e as metas alcançadas.';
+
+  @override
+  String get growthSummaryTitle => 'Caminho de perseverança';
+
+  @override
+  String growthSummaryProgress(int achieved, int total) {
+    return '$achieved de $total metas alcançadas';
+  }
+
+  @override
+  String get growthSummaryQuote =>
+      '\"Quem perseverar até o fim, esse será salvo.\" (Mt 24, 13)';
+
+  @override
+  String get growthSectionStreaks => 'SEQUÊNCIAS ATUAIS';
+
+  @override
+  String get growthStreakPrayerLabel => 'Dias seguidos rezando';
+
+  @override
+  String get growthStreakRosaryLabel => 'Dias seguidos de Terço';
+
+  @override
+  String get growthStreakMassLabel => 'Domingos seguidos na Missa';
+
+  @override
+  String growthStreakBest(int count) {
+    return 'Recorde: $count';
+  }
+
+  @override
+  String growthTotalRosariesLabel(int count) {
+    return 'Total: $count terços';
+  }
+
+  @override
+  String growthPreceptMonthsLabel(int count) {
+    return 'Meses fiéis ao preceito: $count';
+  }
+
+  @override
+  String get growthStreakDevotionLabel => 'Novenas e Confissões';
+
+  @override
+  String growthDevotionBreakdown(int novenas, int confessions) {
+    return '$novenas novenas · $confessions confissões';
+  }
+
+  @override
+  String get growthSectionNext => 'PRÓXIMA META';
+
+  @override
+  String get growthCatPrayer => 'CONSTÂNCIA NA ORAÇÃO';
+
+  @override
+  String get growthCatRosary => 'SANTO TERÇO';
+
+  @override
+  String get growthCatMass => 'SANTA MISSA';
+
+  @override
+  String get growthCatDevotion => 'NOVENAS E SACRAMENTOS';
+
+  @override
+  String get growthAchievedBadge => 'Alcançada';
+
+  @override
+  String growthProgressRatio(int current, int target) {
+    return '$current / $target';
+  }
+
+  @override
+  String get growthPopupTitleSingle => 'Nova meta alcançada!';
+
+  @override
+  String get growthPopupTitleMulti => 'Novas metas alcançadas!';
+
+  @override
+  String get growthPopupEncouragement =>
+      'Deo gratias! Cada passo fiel aproxima sua alma de Deus. Continue firme na oração diária.';
+
+  @override
+  String get growthPopupViewAll => 'Ver evolução';
+
+  @override
+  String get growthPopupContinue => 'Continuar';
+
+  @override
+  String get milestonePrayerStreak3Title => '3 dias seguidos rezando';
+
+  @override
+  String get milestonePrayerStreak3Desc =>
+      'Primeiros passos na constância diária com Deus.';
+
+  @override
+  String get milestonePrayerStreak7Title => '7 dias seguidos rezando';
+
+  @override
+  String get milestonePrayerStreak7Desc =>
+      'Uma semana inteira dedicada à vida de oração.';
+
+  @override
+  String get milestonePrayerStreak21Title => '21 dias seguidos rezando';
+
+  @override
+  String get milestonePrayerStreak21Desc =>
+      'O hábito da oração começa a criar raízes firmes.';
+
+  @override
+  String get milestonePrayerStreak40Title => '40 dias seguidos rezando';
+
+  @override
+  String get milestonePrayerStreak40Desc =>
+      'Uma Quaresma inteira de fidelidade na oração.';
+
+  @override
+  String get milestonePrayerStreak90Title => '90 dias seguidos rezando';
+
+  @override
+  String get milestonePrayerStreak90Desc =>
+      'Três meses de perseverança constante diante do Senhor.';
+
+  @override
+  String get milestonePrayerStreak365Title => '365 dias seguidos rezando';
+
+  @override
+  String get milestonePrayerStreak365Desc =>
+      'Um ano inteiro de oração fiel sem interromper a caminhada.';
+
+  @override
+  String get milestoneRosaryTotal1Title => 'Primeiro Santo Terço';
+
+  @override
+  String get milestoneRosaryTotal1Desc =>
+      'Concluir e registrar o seu primeiro Terço no aplicativo.';
+
+  @override
+  String get milestoneRosaryStreak7Title => '7 dias seguidos de Terço';
+
+  @override
+  String get milestoneRosaryStreak7Desc =>
+      'Uma semana inteira meditando os mistérios com Nossa Senhora.';
+
+  @override
+  String get milestoneRosaryStreak30Title => '30 dias seguidos de Terço';
+
+  @override
+  String get milestoneRosaryStreak30Desc =>
+      'Um mês mariano rezando o Santo Terço todos os dias.';
+
+  @override
+  String get milestoneRosaryStreak54Title => '54 dias seguidos de Terço';
+
+  @override
+  String get milestoneRosaryStreak54Desc =>
+      'Perseverança equivalente à tradicional Novena da Pompeia.';
+
+  @override
+  String get milestoneRosaryTotal100Title => '100 Terços rezados';
+
+  @override
+  String get milestoneRosaryTotal100Desc =>
+      'Cem terços acumulados em honra à Virgem Santíssima.';
+
+  @override
+  String get milestoneMassTotal1Title => 'Primeira Missa registrada';
+
+  @override
+  String get milestoneMassTotal1Desc =>
+      'A primeira flor dourada plantada no seu Jardim da Alma.';
+
+  @override
+  String get milestoneMassSunday4Title => '4 domingos seguidos na Missa';
+
+  @override
+  String get milestoneMassSunday4Desc =>
+      'Um mês inteiro sem faltar ao Dia do Senhor.';
+
+  @override
+  String get milestoneMassPerfectMonth1Title => 'Mês fiel aos dias de preceito';
+
+  @override
+  String get milestoneMassPerfectMonth1Desc =>
+      'Participar da Missa em todos os domingos e festas de guarda de um mês.';
+
+  @override
+  String get milestoneMassSunday12Title => '12 domingos seguidos na Missa';
+
+  @override
+  String get milestoneMassSunday12Desc =>
+      'Um trimestre inteiro de fidelidade à Santa Missa dominical.';
+
+  @override
+  String get milestoneMassSunday52Title => '52 domingos seguidos na Missa';
+
+  @override
+  String get milestoneMassSunday52Desc =>
+      'Um ano inteiro sem faltar à Santa Missa aos domingos.';
+
+  @override
+  String get milestoneNovena1Title => 'Primeira Novena concluída';
+
+  @override
+  String get milestoneNovena1Desc =>
+      'Perseverar pelos nove dias completos de uma novena.';
+
+  @override
+  String get milestoneNovena3Title => '3 Novenas concluídas';
+
+  @override
+  String get milestoneNovena3Desc =>
+      'Três novenas completas oferecidas com fé e constância.';
+
+  @override
+  String get milestoneConfession1Title => 'Primeira Confissão registrada';
+
+  @override
+  String get milestoneConfession1Desc =>
+      'Buscar o sacramento da Reconciliação e renovar a graça.';
+
+  @override
+  String get milestoneConfession4Title => '4 Confissões registradas';
+
+  @override
+  String get milestoneConfession4Desc =>
+      'Cuidar da alma com regularidade no sacramento da Penitência.';
 }

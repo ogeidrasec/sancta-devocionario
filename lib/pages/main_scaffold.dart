@@ -20,6 +20,7 @@ import 'package:sanctaconscientia/pages/novena_detail_page.dart';
 import 'package:sanctaconscientia/data/prayer_data.dart';
 import 'package:sanctaconscientia/pages/prayer_detail_page.dart';
 import 'package:sanctaconscientia/widgets/app_tour.dart';
+import 'package:sanctaconscientia/widgets/milestone_celebration.dart';
 import 'package:sanctaconscientia/pages/support_project_page.dart';
 import 'package:sanctaconscientia/config/donation_config.dart';
 
@@ -290,25 +291,28 @@ class MainScaffoldState extends State<MainScaffold> with WidgetsBindingObserver 
       ),
     );
 
-    return Stack(
-      children: [
-        scaffold,
-        if (_tour)
-          Positioned.fill(
-            child: AppTourOverlay(
-              steps: buildAppTourSteps(l10n),
-              onTabChange: switchToTab,
-              onFinish: () {
-                setState(() => _tour = false);
-                switchToTab(0);
-                // ao fim do guia (concluído ou pulado), conta sobre o projeto
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  if (mounted) _showProjectDialog();
-                });
-              },
+    return MilestoneCelebrationWatcher(
+      paused: _tour,
+      child: Stack(
+        children: [
+          scaffold,
+          if (_tour)
+            Positioned.fill(
+              child: AppTourOverlay(
+                steps: buildAppTourSteps(l10n),
+                onTabChange: switchToTab,
+                onFinish: () {
+                  setState(() => _tour = false);
+                  switchToTab(0);
+                  // ao fim do guia (concluído ou pulado), conta sobre o projeto
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (mounted) _showProjectDialog();
+                  });
+                },
+              ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

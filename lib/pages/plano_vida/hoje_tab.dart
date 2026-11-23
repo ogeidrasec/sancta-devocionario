@@ -24,6 +24,7 @@ import 'package:sanctaconscientia/widgets/app_tour.dart';
 import 'package:sanctaconscientia/services/haptics_service.dart';
 import 'package:sanctaconscientia/widgets/petal_shower.dart';
 import 'package:sanctaconscientia/widgets/confession_confirmation_dialog.dart';
+import 'package:sanctaconscientia/widgets/spiritual_growth_card.dart';
 
 /// Aba "Hoje": o que ainda falta fazer e, separado, tudo o que já foi feito.
 class HojeTab extends StatelessWidget {
@@ -144,6 +145,9 @@ class HojeTab extends StatelessWidget {
             const SizedBox(height: 10),
             _DoneTodayStrip(entries: done),
           ],
+          const SizedBox(height: 12),
+          // Resumo de evolução, sequências e próxima meta
+          const SpiritualGrowthCard(),
           const SizedBox(height: 20),
 
           // O dia: calendário litúrgico e santo do dia

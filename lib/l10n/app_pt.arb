@@ -2428,5 +2428,169 @@
   "tourExamSectionsBody": "Percorra as categorias, como os Mandamentos e os pecados capitais, e toque em + em cada item de que se lembrar (se repetiu, toque de novo). Use a busca para achar um pecado pelo nome.",
   "tourExamGuideTitle": "Gerar o guia",
   "tourExamGuideBody": "Quando terminar, toque em Gerar guia: o app monta um resumo organizado do que você marcou, para levar à confissão. Ao confirmar a confissão, as marcações são apagadas e o Jardim ganha um lírio.",
-  "backupRestoring": "Restaurando seu backup… Isso pode levar alguns segundos."
+  "backupRestoring": "Restaurando seu backup… Isso pode levar alguns segundos.",
+  "drawerGrowth": "Minha Evolução",
+  "drawerGrowthDesc": "Sequências, perseverança e metas de oração",
+  "growthCardTitle": "Sua evolução",
+  "growthCardCounter": "{achieved} de {total} metas",
+  "@growthCardCounter": {
+    "placeholders": {
+      "achieved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "growthNextGoalLabel": "Próxima meta: {title}",
+  "@growthNextGoalLabel": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "growthAllDoneLabel": "Todas as metas atuais foram alcançadas! Continue perseverando.",
+  "growthChipPrayer": "Oração: {days}d",
+  "@growthChipPrayer": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "growthChipRosary": "Terço: {days}d",
+  "@growthChipRosary": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "growthChipMass": "Missa: {weeks} dom.",
+  "@growthChipMass": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "growthPageTitle": "Evolução e Perseverança",
+  "growthPageSubtitle": "Acompanhe sua constância na oração e as metas alcançadas.",
+  "growthSummaryTitle": "Caminho de perseverança",
+  "growthSummaryProgress": "{achieved} de {total} metas alcançadas",
+  "@growthSummaryProgress": {
+    "placeholders": {
+      "achieved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "growthSummaryQuote": "\"Quem perseverar até o fim, esse será salvo.\" (Mt 24, 13)",
+  "growthSectionStreaks": "SEQUÊNCIAS ATUAIS",
+  "growthStreakPrayerLabel": "Dias seguidos rezando",
+  "growthStreakRosaryLabel": "Dias seguidos de Terço",
+  "growthStreakMassLabel": "Domingos seguidos na Missa",
+  "growthStreakBest": "Recorde: {count}",
+  "@growthStreakBest": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "growthTotalRosariesLabel": "Total: {count} terços",
+  "@growthTotalRosariesLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "growthPreceptMonthsLabel": "Meses fiéis ao preceito: {count}",
+  "@growthPreceptMonthsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "growthStreakDevotionLabel": "Novenas e Confissões",
+  "growthDevotionBreakdown": "{novenas} novenas · {confessions} confissões",
+  "@growthDevotionBreakdown": {
+    "placeholders": {
+      "novenas": {
+        "type": "int"
+      },
+      "confessions": {
+        "type": "int"
+      }
+    }
+  },
+  "growthSectionNext": "PRÓXIMA META",
+  "growthCatPrayer": "CONSTÂNCIA NA ORAÇÃO",
+  "growthCatRosary": "SANTO TERÇO",
+  "growthCatMass": "SANTA MISSA",
+  "growthCatDevotion": "NOVENAS E SACRAMENTOS",
+  "growthAchievedBadge": "Alcançada",
+  "growthProgressRatio": "{current} / {target}",
+  "@growthProgressRatio": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "growthPopupTitleSingle": "Nova meta alcançada!",
+  "growthPopupTitleMulti": "Novas metas alcançadas!",
+  "growthPopupEncouragement": "Deo gratias! Cada passo fiel aproxima sua alma de Deus. Continue firme na oração diária.",
+  "growthPopupViewAll": "Ver evolução",
+  "growthPopupContinue": "Continuar",
+  "milestonePrayerStreak3Title": "3 dias seguidos rezando",
+  "milestonePrayerStreak3Desc": "Primeiros passos na constância diária com Deus.",
+  "milestonePrayerStreak7Title": "7 dias seguidos rezando",
+  "milestonePrayerStreak7Desc": "Uma semana inteira dedicada à vida de oração.",
+  "milestonePrayerStreak21Title": "21 dias seguidos rezando",
+  "milestonePrayerStreak21Desc": "O hábito da oração começa a criar raízes firmes.",
+  "milestonePrayerStreak40Title": "40 dias seguidos rezando",
+  "milestonePrayerStreak40Desc": "Uma Quaresma inteira de fidelidade na oração.",
+  "milestonePrayerStreak90Title": "90 dias seguidos rezando",
+  "milestonePrayerStreak90Desc": "Três meses de perseverança constante diante do Senhor.",
+  "milestonePrayerStreak365Title": "365 dias seguidos rezando",
+  "milestonePrayerStreak365Desc": "Um ano inteiro de oração fiel sem interromper a caminhada.",
+  "milestoneRosaryTotal1Title": "Primeiro Santo Terço",
+  "milestoneRosaryTotal1Desc": "Concluir e registrar o seu primeiro Terço no aplicativo.",
+  "milestoneRosaryStreak7Title": "7 dias seguidos de Terço",
+  "milestoneRosaryStreak7Desc": "Uma semana inteira meditando os mistérios com Nossa Senhora.",
+  "milestoneRosaryStreak30Title": "30 dias seguidos de Terço",
+  "milestoneRosaryStreak30Desc": "Um mês mariano rezando o Santo Terço todos os dias.",
+  "milestoneRosaryStreak54Title": "54 dias seguidos de Terço",
+  "milestoneRosaryStreak54Desc": "Perseverança equivalente à tradicional Novena da Pompeia.",
+  "milestoneRosaryTotal100Title": "100 Terços rezados",
+  "milestoneRosaryTotal100Desc": "Cem terços acumulados em honra à Virgem Santíssima.",
+  "milestoneMassTotal1Title": "Primeira Missa registrada",
+  "milestoneMassTotal1Desc": "A primeira flor dourada plantada no seu Jardim da Alma.",
+  "milestoneMassSunday4Title": "4 domingos seguidos na Missa",
+  "milestoneMassSunday4Desc": "Um mês inteiro sem faltar ao Dia do Senhor.",
+  "milestoneMassPerfectMonth1Title": "Mês fiel aos dias de preceito",
+  "milestoneMassPerfectMonth1Desc": "Participar da Missa em todos os domingos e festas de guarda de um mês.",
+  "milestoneMassSunday12Title": "12 domingos seguidos na Missa",
+  "milestoneMassSunday12Desc": "Um trimestre inteiro de fidelidade à Santa Missa dominical.",
+  "milestoneMassSunday52Title": "52 domingos seguidos na Missa",
+  "milestoneMassSunday52Desc": "Um ano inteiro sem faltar à Santa Missa aos domingos.",
+  "milestoneNovena1Title": "Primeira Novena concluída",
+  "milestoneNovena1Desc": "Perseverar pelos nove dias completos de uma novena.",
+  "milestoneNovena3Title": "3 Novenas concluídas",
+  "milestoneNovena3Desc": "Três novenas completas oferecidas com fé e constância.",
+  "milestoneConfession1Title": "Primeira Confissão registrada",
+  "milestoneConfession1Desc": "Buscar o sacramento da Reconciliação e renovar a graça.",
+  "milestoneConfession4Title": "4 Confissões registradas",
+  "milestoneConfession4Desc": "Cuidar da alma com regularidade no sacramento da Penitência."
 }
