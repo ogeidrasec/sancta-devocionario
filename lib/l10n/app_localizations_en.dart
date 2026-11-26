@@ -4511,7 +4511,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get novenasInProgress => 'In progress';
 
   @override
-  String get novenasAll => 'All novenas';
+  String get novenasAll => 'All novenas, soonest first';
 
   @override
   String get novenasIntro =>
@@ -6796,4 +6796,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get novenaAngelsPrayers =>
       'Pray the Glory Be.\n\nO Holy Guardian Angels, most noble princes of the heavenly court, what respect and reverence your constant presence should inspire in us! And yet, we confess it, full of confusion and shame, how often we dare to do before you what we would not dare to do before the lowest of men. We offend and grieve you every time that, by sinning, we force you to witness our evil deeds. Forgive us, O Holy Angels; we promise never again to offend your most pure sight, remembering that you are always at our side to guide us along the path of virtue and to offer our good works to God.\n\nPray the Glory Be.\n\nO Holy Guardian Angels, our protectors and defenders, who, in spite of our ingratitude and unworthiness, have never abandoned us until now, but have always defended and sheltered us, continue, we ask you, your loving care for us; preserve us from all sin and all misfortune; be our refuge in dangers, our strength in temptations and in trials; guide us along the dangerous road of this life, so that our souls may be saved. This is the chief grace we ask of you, full of trust: do not allow that, after having been our faithful companions in this short life, we should by our sins deserve to be separated from you for all eternity; rather, grant that, dying in the grace of God, we may also enjoy your company in heaven, and with you love and praise God forever. Amen.\n\nPray the Glory Be.\n\nThen pray the Guardian Angel prayer (see below).';
+
+  @override
+  String novenaPeriod(String start, String end) {
+    return '$start to $end';
+  }
 }

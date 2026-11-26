@@ -1618,7 +1618,7 @@
     }
   },
   "novenasInProgress": "In progress",
-  "novenasAll": "All novenas",
+  "novenasAll": "All novenas, soonest first",
   "novenasIntro": "A novena is nine days of prayer in a row. Pick one below to begin.",
   "novenaContinue": "Continue",
   "historyNovenaLabel": "Novena: {title}",
@@ -2409,5 +2409,16 @@
   "novenaAngelsTitle": "Novena to the Holy Guardian Angels",
   "novenaAngelsDesc": "From September 23 to October 1, to give thanks for the protection of our angels and to ask for their company all the way to heaven. The feast of the Holy Guardian Angels is on October 2.",
   "novenaAngelsOpening": "O Holy Guardian Angels, our most faithful companions, whom God's providence gave us to help, protect and defend us; we give you many thanks for having freed us from so many dangers of soul and body, and for favoring us with so many blessings that we can neither know nor number. Perhaps hell would long ago have been our dwelling, had you not, by the power of your intercession, turned aside the blow that divine justice was about to deal us. We are deeply sorry to have repaid so many blessings with such ingratitude, and to have spent our lives without ever showing you our gratitude; but we promise, from now on, to keep the memory of your blessings alive and always to obey your holy inspirations.",
-  "novenaAngelsPrayers": "Pray the Glory Be.\n\nO Holy Guardian Angels, most noble princes of the heavenly court, what respect and reverence your constant presence should inspire in us! And yet, we confess it, full of confusion and shame, how often we dare to do before you what we would not dare to do before the lowest of men. We offend and grieve you every time that, by sinning, we force you to witness our evil deeds. Forgive us, O Holy Angels; we promise never again to offend your most pure sight, remembering that you are always at our side to guide us along the path of virtue and to offer our good works to God.\n\nPray the Glory Be.\n\nO Holy Guardian Angels, our protectors and defenders, who, in spite of our ingratitude and unworthiness, have never abandoned us until now, but have always defended and sheltered us, continue, we ask you, your loving care for us; preserve us from all sin and all misfortune; be our refuge in dangers, our strength in temptations and in trials; guide us along the dangerous road of this life, so that our souls may be saved. This is the chief grace we ask of you, full of trust: do not allow that, after having been our faithful companions in this short life, we should by our sins deserve to be separated from you for all eternity; rather, grant that, dying in the grace of God, we may also enjoy your company in heaven, and with you love and praise God forever. Amen.\n\nPray the Glory Be.\n\nThen pray the Guardian Angel prayer (see below)."
+  "novenaAngelsPrayers": "Pray the Glory Be.\n\nO Holy Guardian Angels, most noble princes of the heavenly court, what respect and reverence your constant presence should inspire in us! And yet, we confess it, full of confusion and shame, how often we dare to do before you what we would not dare to do before the lowest of men. We offend and grieve you every time that, by sinning, we force you to witness our evil deeds. Forgive us, O Holy Angels; we promise never again to offend your most pure sight, remembering that you are always at our side to guide us along the path of virtue and to offer our good works to God.\n\nPray the Glory Be.\n\nO Holy Guardian Angels, our protectors and defenders, who, in spite of our ingratitude and unworthiness, have never abandoned us until now, but have always defended and sheltered us, continue, we ask you, your loving care for us; preserve us from all sin and all misfortune; be our refuge in dangers, our strength in temptations and in trials; guide us along the dangerous road of this life, so that our souls may be saved. This is the chief grace we ask of you, full of trust: do not allow that, after having been our faithful companions in this short life, we should by our sins deserve to be separated from you for all eternity; rather, grant that, dying in the grace of God, we may also enjoy your company in heaven, and with you love and praise God forever. Amen.\n\nPray the Glory Be.\n\nThen pray the Guardian Angel prayer (see below).",
+  "novenaPeriod": "{start} to {end}",
+  "@novenaPeriod": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  }
 }

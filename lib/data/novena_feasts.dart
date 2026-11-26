@@ -84,6 +84,36 @@ class NovenaFeasts {
     return null;
   }
 
+  /// Próximo período da novena [novenaId] que ainda não terminou: começa 9 dias
+  /// antes da festa e termina na véspera. Se hoje está dentro do período, é ele.
+  static NovenaSuggestion? nextWindow(String novenaId, DateTime today) {
+    final base = _dateOnly(today);
+    for (final year in [base.year, base.year + 1]) {
+      final feast = feastIn(novenaId, year);
+      if (feast == null) continue;
+      if (feast.isAfter(base)) {
+        return NovenaSuggestion(novenaId: novenaId, start: feast.subtract(const Duration(days: 9)), feast: feast);
+      }
+    }
+    return null;
+  }
+
+  /// Ordena as novenas pela data: primeiro as que estão no período agora
+  /// (começaram e a festa ainda não chegou), depois as que começam mais cedo.
+  /// Novenas sem data ficam no fim, na ordem original.
+  static List<T> sortByDate<T>(List<T> items, String Function(T) idOf, DateTime today) {
+    final keyed = [
+      for (var i = 0; i < items.length; i++) (i, items[i], nextWindow(idOf(items[i]), today)),
+    ];
+    final base = _dateOnly(today);
+    int key((int, T, NovenaSuggestion?) e) => e.$3 == null ? 1 << 30 : e.$3!.start.difference(base).inDays;
+    keyed.sort((a, b) {
+      final c = key(a).compareTo(key(b));
+      return c != 0 ? c : a.$1.compareTo(b.$1);
+    });
+    return [for (final e in keyed) e.$2];
+  }
+
   static const List<String> _ids = [
     'novena_natal',
     'novena_carlo_acutis',

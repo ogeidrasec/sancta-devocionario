@@ -11,6 +11,7 @@ import 'package:sanctaconscientia/providers/prayer_provider.dart';
 import 'package:sanctaconscientia/pages/novena_detail_page.dart';
 import 'package:sanctaconscientia/data/novena_data.dart';
 import 'package:sanctaconscientia/widgets/novena_suggestion_card.dart';
+import 'package:sanctaconscientia/data/novena_feasts.dart';
 import 'package:sanctaconscientia/utils/content_search.dart';
 import 'package:sanctaconscientia/widgets/search_field.dart';
 
@@ -43,7 +44,8 @@ class _NovenaHomePageState extends State<NovenaHomePage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final prayerProvider = Provider.of<PrayerProvider>(context);
-    final all = NovenaData.getAllNovenas(context);
+    // da novena mais próxima (pela data da festa) à mais distante
+    final all = NovenaFeasts.sortByDate(NovenaData.getAllNovenas(context), (n) => n.id, DateTime.now());
     final active = all.where((n) => prayerProvider.isNovenaActive(n.id)).toList();
 
     return Scaffold(
@@ -319,6 +321,7 @@ class _NovenaTile extends StatelessWidget {
     final lastCompletion = prayerProvider.lastNovenaCompletion(novena.id);
     final startDate = prayerProvider.getNovenaStartDate(novena.id);
     final isScheduled = startDate != null && !isActive && currentDay < 1;
+    final window = NovenaFeasts.nextWindow(novena.id, DateTime.now());
 
     String? status;
     Color statusColor = AppColors.secondaryText;
@@ -391,6 +394,24 @@ class _NovenaTile extends StatelessWidget {
                           color: AppColors.secondaryText.withValues(alpha: 0.85),
                         ),
                       ),
+                      if (window != null) ...[
+                        const SizedBox(height: 6),
+                        Row(
+                          children: [
+                            Icon(Icons.event, size: 14, color: AppColors.secondaryText.withValues(alpha: 0.8)),
+                            const SizedBox(width: 4),
+                            Flexible(
+                              child: Text(
+                                l10n.novenaPeriod(
+                                  fmtDayMonth(context, window.start),
+                                  fmtDayMonth(context, window.feast.subtract(const Duration(days: 1))),
+                                ),
+                                style: TextStyle(fontSize: 12, color: AppColors.secondaryText.withValues(alpha: 0.9)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                       if (status != null) ...[
                         const SizedBox(height: 8),
                         Container(

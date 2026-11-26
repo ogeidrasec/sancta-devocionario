@@ -4518,7 +4518,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get novenasInProgress => 'Em andamento';
 
   @override
-  String get novenasAll => 'Todas as novenas';
+  String get novenasAll => 'Todas as novenas, das mais próximas';
 
   @override
   String get novenasIntro =>
@@ -6804,4 +6804,9 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get novenaAngelsPrayers =>
       'Rezar o Glória ao Pai.\n\nÓ Santos Anjos da Guarda, príncipes nobilíssimos da corte celestial, que respeito e veneração não nos deveria inspirar a vossa contínua presença! E, no entanto, confessamo-lo, cheios de confusão e vergonha, quantas vezes não nos atrevemos a fazer diante de vós o que não ousaríamos fazer diante do último de todos os homens. Nós vos ofendemos e contristamos todas as vezes que, pecando, vos constrangemos a ser testemunhas de nossas más ações. Perdoai-nos, ó Santos Anjos; prometemos nunca mais ofender as vossas puríssimas vistas, lembrando-nos de que estais continuamente ao nosso lado para nos dirigir pela senda da virtude e oferecer a Deus as nossas boas obras.\n\nRezar o Glória ao Pai.\n\nÓ Santos Anjos da Guarda, nossos protetores e defensores, que, apesar da nossa ingratidão e indignidade, nunca até agora nos abandonastes, antes sempre nos defendestes e amparastes, continuai, vo-lo pedimos, os vossos amorosos cuidados para conosco; preservai-nos de todo pecado e de toda desgraça; sede o nosso refúgio nos perigos, a nossa força nas tentações e nos trabalhos; guiai-nos no perigoso caminho desta vida, a fim de que nossas almas sejam salvas. Esta é a principal graça que, cheios de confiança, vos pedimos: não permitais que, depois de terdes sido nossos fiéis companheiros nesta breve vida, pelos nossos pecados mereçamos ser separados de vós por toda a eternidade; antes fazei que, morrendo na graça de Deus, consigamos também a vossa companhia no céu, e convosco amemos e louvemos a Deus para sempre. Assim seja.\n\nRezar o Glória ao Pai.\n\nEm seguida, rezar o Santo Anjo do Senhor (veja abaixo).';
+
+  @override
+  String novenaPeriod(String start, String end) {
+    return '$start a $end';
+  }
 }

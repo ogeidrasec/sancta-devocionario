@@ -56,6 +56,32 @@ void main() {
     expect(() => NovenaFeasts.suggestionsFor(DateTime(2026, 12, 31)), returnsNormally);
   });
 
+
+  group('ordem por data', () {
+    const ids = ['novena_natal', 'novena_sao_jose', 'novena_anjos_guarda', 'novena_cristo_rei', 'sem_data'];
+    List<String> order(DateTime d) => NovenaFeasts.sortByDate(ids, (x) => x, d);
+
+    test('perto do Natal, a de Natal vem primeiro', () {
+      expect(order(DateTime(2026, 12, 10)).first, 'novena_natal');
+    });
+    test('durante a novena (já começou), ela continua em primeiro', () {
+      expect(order(DateTime(2026, 12, 20)).first, 'novena_natal');
+    });
+    test('passada a festa, vai para o fim da fila (ano que vem)', () {
+      expect(order(DateTime(2026, 12, 26)).first, 'novena_sao_jose');
+      expect(order(DateTime(2026, 12, 26)).indexOf('novena_natal'), 3);
+    });
+    test('em setembro: Anjos da Guarda, depois Cristo Rei, Natal, São José', () {
+      expect(order(DateTime(2026, 9, 1)), ['novena_anjos_guarda', 'novena_cristo_rei', 'novena_natal', 'novena_sao_jose', 'sem_data']);
+    });
+    test('período: começa 9 dias antes da festa e termina na véspera', () {
+      final w = NovenaFeasts.nextWindow('novena_natal', DateTime(2026, 12, 1))!;
+      expect(w.start, DateTime(2026, 12, 16));
+      expect(w.feast, DateTime(2026, 12, 25));
+      expect(NovenaFeasts.nextWindow('novena_natal', DateTime(2026, 12, 25))!.feast, DateTime(2027, 12, 25));
+    });
+  });
+
   test('toda novena do app tem data de festa', () {
     final source = File('lib/data/novena_data.dart').readAsStringSync();
     final ids = RegExp(r"id: '(novena_[a-z_]+)'").allMatches(source).map((m) => m.group(1)!).toSet();
