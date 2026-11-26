@@ -78,6 +78,8 @@ class NovenaFeasts {
         return DateTime(y, 5, 22);
       case 'novena_cristo_rei':
         return christTheKing(y);
+      case 'novena_anjos_guarda':
+        return DateTime(y, 10, 2);
     }
     return null;
   }
@@ -100,6 +102,7 @@ class NovenaFeasts {
     'novena_santo_antonio',
     'novena_santa_rita',
     'novena_cristo_rei',
+    'novena_anjos_guarda',
   ];
 
   /// Novenas cujo início ideal (festa − 9 dias) cai de [lookBackDays] dias atrás

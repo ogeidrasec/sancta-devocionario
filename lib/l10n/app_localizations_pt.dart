@@ -6789,4 +6789,19 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get tourGrowthBody =>
       'Aqui você vê há quantos dias seguidos reza e qual é a sua próxima meta. Toque no cartão para abrir a tela completa, com as sequências de oração, do terço e da Missa, e as metas já alcançadas. Quando você alcança uma, o app comemora.';
+
+  @override
+  String get novenaAngelsTitle => 'Novena dos Santos Anjos da Guarda';
+
+  @override
+  String get novenaAngelsDesc =>
+      'De 23 de setembro a 1º de outubro, para agradecer a proteção dos nossos anjos e pedir a sua companhia até o céu. A festa dos Santos Anjos da Guarda é em 2 de outubro.';
+
+  @override
+  String get novenaAngelsOpening =>
+      'Ó Santos Anjos da Guarda, nossos fidelíssimos companheiros, que a providência de Deus nos deu para amparar-nos, para proteger-nos e defender-nos; muitas graças vos damos por haverdes livrado de tantos perigos da alma e do corpo, e favorecido com tantos benefícios, que não podemos conhecer nem numerar. Talvez desde há muito fora o inferno a nossa habitação, se com a força de vossa intercessão não tivésseis desviado o golpe que a divina justiça estava prestes a descarregar sobre nós. Sentimos profundamente ter correspondido até agora com tanta ingratidão a tantos benefícios, e passado a vida sem jamais testemunhar-vos nosso reconhecimento; mas prometemos, daqui em diante, guardar viva a memória dos vossos benefícios, e obedecer sempre às vossas santas inspirações.';
+
+  @override
+  String get novenaAngelsPrayers =>
+      'Rezar o Glória ao Pai.\n\nÓ Santos Anjos da Guarda, príncipes nobilíssimos da corte celestial, que respeito e veneração não nos deveria inspirar a vossa contínua presença! E, no entanto, confessamo-lo, cheios de confusão e vergonha, quantas vezes não nos atrevemos a fazer diante de vós o que não ousaríamos fazer diante do último de todos os homens. Nós vos ofendemos e contristamos todas as vezes que, pecando, vos constrangemos a ser testemunhas de nossas más ações. Perdoai-nos, ó Santos Anjos; prometemos nunca mais ofender as vossas puríssimas vistas, lembrando-nos de que estais continuamente ao nosso lado para nos dirigir pela senda da virtude e oferecer a Deus as nossas boas obras.\n\nRezar o Glória ao Pai.\n\nÓ Santos Anjos da Guarda, nossos protetores e defensores, que, apesar da nossa ingratidão e indignidade, nunca até agora nos abandonastes, antes sempre nos defendestes e amparastes, continuai, vo-lo pedimos, os vossos amorosos cuidados para conosco; preservai-nos de todo pecado e de toda desgraça; sede o nosso refúgio nos perigos, a nossa força nas tentações e nos trabalhos; guiai-nos no perigoso caminho desta vida, a fim de que nossas almas sejam salvas. Esta é a principal graça que, cheios de confiança, vos pedimos: não permitais que, depois de terdes sido nossos fiéis companheiros nesta breve vida, pelos nossos pecados mereçamos ser separados de vós por toda a eternidade; antes fazei que, morrendo na graça de Deus, consigamos também a vossa companhia no céu, e convosco amemos e louvemos a Deus para sempre. Assim seja.\n\nRezar o Glória ao Pai.\n\nEm seguida, rezar o Santo Anjo do Senhor (veja abaixo).';
 }

@@ -25,6 +25,7 @@ class NovenaData {
       _getSantoAntonioNovena(l10n),
       _getSantaRitaNovena(l10n),
       _getCristoReiNovena(l10n),
+      _getAnjosGuardaNovena(l10n),
     ];
   }
 
@@ -770,6 +771,21 @@ class NovenaData {
         NovenaDay(dayNumber: 8, title: l10n.novenaCristoReiDay8Title, meditation: l10n.novenaCristoReiDay8Meditation),
         NovenaDay(dayNumber: 9, title: l10n.novenaCristoReiDay9Title, meditation: l10n.novenaCristoReiDay9Meditation),
       ],
+    );
+  }
+
+  /// As mesmas orações nos nove dias (sem meditação própria de cada dia).
+  /// O fim é o "Santo Anjo do Senhor", que já existe no app.
+  static NovenaContent _getAnjosGuardaNovena(AppLocalizations l10n) {
+    return NovenaContent(
+      id: 'novena_anjos_guarda',
+      title: l10n.novenaAngelsTitle,
+      description: l10n.novenaAngelsDesc,
+      icon: Icons.shield_outlined,
+      openingPrayer: l10n.novenaAngelsOpening,
+      closingPrayer: l10n.prayerGuardianAngelContent,
+      prayerInstruction: l10n.novenaAngelsPrayers,
+      days: const [],
     );
   }
 }
